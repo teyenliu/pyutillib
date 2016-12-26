@@ -11,7 +11,7 @@ Run this script on tensorflow r0.10. Errors appear when using lower versions.
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
-
+import os
 
 BATCH_START = 0
 TIME_STEPS = 20
@@ -21,6 +21,12 @@ OUTPUT_SIZE = 1
 CELL_SIZE = 10
 LR = 0.006
 
+checkpoint_path = "./ckpt_dir"
+checkpoint_file = "./ckpt_dir/model.ckpt-180.meta"
+
+ckpt_dir = "./ckpt_dir"
+if not os.path.exists(ckpt_dir):
+    os.makedirs(ckpt_dir)
 
 def get_batch():
     global BATCH_START, TIME_STEPS
@@ -55,6 +61,8 @@ class LSTMRNN(object):
             self.compute_cost()
         with tf.name_scope('train'):
             self.train_op = tf.train.AdamOptimizer(LR).minimize(self.cost)
+        # Call this after declaring all tf.Variables.
+        self.saver = tf.train.Saver()
 
     def add_input_layer(self,):
         l_in_x = tf.reshape(self.xs, [-1, self.input_size], name='2_2D')  # (batch*n_step, in_size)
@@ -122,6 +130,11 @@ if __name__ == '__main__':
     sess.run(tf.global_variables_initializer())
     # relocate to the local dir and run this line to view it on Chrome (http://0.0.0.0:6006/):
     # $ tensorboard --logdir='logs'
+    
+    ckpt = tf.train.get_checkpoint_state(ckpt_dir)
+    if ckpt and ckpt.model_checkpoint_path:
+        print(ckpt.model_checkpoint_path)
+        model.saver.restore(sess, ckpt.model_checkpoint_path) # restore all variables
 
     plt.ion()
     plt.show()
@@ -154,5 +167,6 @@ if __name__ == '__main__':
             print('cost: ', round(cost, 4))
             result = sess.run(merged, feed_dict)
             writer.add_summary(result, i)
+            model.saver.save(sess, ckpt_dir + "/model.ckpt", global_step=i)
 
     
