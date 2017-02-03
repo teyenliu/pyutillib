@@ -1,6 +1,6 @@
 #!/usr/bin/python
-# -*- coding: big5 -*-
-# coding=Big5
+# -*- coding: utf-8 -*-
+# coding=utf-8
 
 # Feature Importance
 from sklearn import datasets
@@ -13,13 +13,13 @@ import matplotlib.pyplot as plt
 
 # Import data
 data = pd.read_csv("view_parameters_yield_mapping.csv", header=0, encoding = 'big5')
-data.columns = ["¼h§O¦WºÙ","±ÆªO¼Æ","³Ì¤p½u®|","³Ì¤p½u¶Z","¥X³f­±¿n",
-                "°®½¤ºØÃş","À£½¤¤è¦¡","À£½¤³t«×","À£½¤¾÷¥x","Ãn¥ú¾÷¥x",
-                "E1¼t§O","E1½u§O","«e³B²z","À£½¤","¤£¨}²v2"]
-data["³Ì¤p½u®|"].fillna(data["³Ì¤p½u®|"].mean(), inplace=True)
-data["³Ì¤p½u¶Z"].fillna(data["³Ì¤p½u¶Z"].mean(), inplace=True)
-data["¥X³f­±¿n"].fillna(data["¥X³f­±¿n"].mean(), inplace=True)
-data["À£½¤³t«×"].fillna(data["À£½¤³t«×"].mean(), inplace=True)
+data.columns = [u"å±¤åˆ¥åç¨±",u"æ’æ¿æ•¸",u"æœ€å°ç·šå¾‘",u"æœ€å°ç·šè·",u"å‡ºè²¨é¢ç©",
+                u"ä¹¾è†œç¨®é¡",u"å£“è†œæ–¹å¼",u"å£“è†œé€Ÿåº¦",u"å£“è†œæ©Ÿå°",u"æ›å…‰æ©Ÿå°",
+                u"E1å» åˆ¥",u"E1ç·šåˆ¥",u"å‰è™•ç†",u"å£“è†œ",u"ä¸è‰¯ç‡2"]
+data[u"æœ€å°ç·šå¾‘"].fillna(data[u"æœ€å°ç·šå¾‘"].mean(), inplace=True)
+data[u"æœ€å°ç·šè·"].fillna(data[u"æœ€å°ç·šè·"].mean(), inplace=True)
+data[u"å‡ºè²¨é¢ç©"].fillna(data[u"å‡ºè²¨é¢ç©"].mean(), inplace=True)
+data[u"å£“è†œé€Ÿåº¦"].fillna(data[u"å£“è†œé€Ÿåº¦"].mean(), inplace=True)
 data.fillna("NAN")
 feat_labels = data.columns[0:-1]
 
@@ -35,20 +35,33 @@ class_le7 = LabelEncoder()
 class_le8 = LabelEncoder()
 class_le9 = LabelEncoder()
 class_le10 = LabelEncoder()
-data["¼h§O¦WºÙ"] = class_le1.fit_transform(data["¼h§O¦WºÙ"])
-data["±ÆªO¼Æ"] = class_le2.fit_transform(data["±ÆªO¼Æ"])
-data["°®½¤ºØÃş"] = class_le3.fit_transform(data["°®½¤ºØÃş"])
-data["À£½¤¤è¦¡"] = class_le4.fit_transform(data["À£½¤¤è¦¡"])
-data["À£½¤¾÷¥x"] = class_le5.fit_transform(data["À£½¤¾÷¥x"])
-data["Ãn¥ú¾÷¥x"] = class_le6.fit_transform(data["Ãn¥ú¾÷¥x"])
-data["E1¼t§O"] = class_le7.fit_transform(data["E1¼t§O"])
-data["E1½u§O"] = class_le8.fit_transform(data["E1½u§O"])
-data["«e³B²z"] = class_le9.fit_transform(data["«e³B²z"])
-data["À£½¤"] = class_le10.fit_transform(data["À£½¤"])
+data[u"å±¤åˆ¥åç¨±"] = class_le1.fit_transform(data[u"å±¤åˆ¥åç¨±"])
+data[u"æ’æ¿æ•¸"] = class_le2.fit_transform(data[u"æ’æ¿æ•¸"])
+data[u"ä¹¾è†œç¨®é¡"] = class_le3.fit_transform(data[u"ä¹¾è†œç¨®é¡"])
+data[u"å£“è†œæ–¹å¼"] = class_le4.fit_transform(data[u"å£“è†œæ–¹å¼"])
+data[u"å£“è†œæ©Ÿå°"] = class_le5.fit_transform(data[u"å£“è†œæ©Ÿå°"])
+data[u"æ›å…‰æ©Ÿå°"] = class_le6.fit_transform(data[u"æ›å…‰æ©Ÿå°"])
+data[u"E1å» åˆ¥"] = class_le7.fit_transform(data[u"E1å» åˆ¥"])
+data[u"E1ç·šåˆ¥"] = class_le8.fit_transform(data[u"E1ç·šåˆ¥"])
+data[u"å‰è™•ç†"] = class_le9.fit_transform(data[u"å‰è™•ç†"])
+data[u"å£“è†œ"] = class_le10.fit_transform(data[u"å£“è†œ"])
+print u"å±¤åˆ¥åç¨± Categorical classes:", class_le1.classes_
+integer_class_le1 = class_le1.transform(class_le1.classes_).reshape(7,1)
 
 # Split trining data and testing data
 X = data.iloc[:, 0:14]
 y = data.iloc[:, 14:15]
+
+### one hot encoding ###
+'''
+from sklearn.preprocessing import OneHotEncoder
+enc = OneHotEncoder(categorical_features=[0],
+    handle_unknown='error', n_values='auto', sparse=True)
+enc.fit(X, y)
+print(enc.n_values_)
+print(enc.feature_indices_)
+one_hot_encoderX = enc.transform(X)
+'''
 
 from sklearn.model_selection import train_test_split
 trX, teX, trY, teY = train_test_split(
@@ -90,18 +103,17 @@ plt.show()
 import numpy as np
 import pandas as pd
 # Import data
-data = pd.read_csv("view_parameters_yield_mapping3.csv", header=0, encoding = 'big5')
-data.columns = ["¼h§O¦WºÙ","±ÆªO¼Æ","³Ì¤p½u®|","³Ì¤p½u¶Z","¥X³f­±¿n",
-                "°®½¤ºØÃş","À£½¤¤è¦¡","À£½¤³t«×","À£½¤¾÷¥x","Ãn¥ú¾÷¥x",
-                "E1¼t§O","E1½u§O","«e³B²z","À£½¤","¤£¨}²v2"]
-data["³Ì¤p½u®|"].fillna(data["³Ì¤p½u®|"].mean(), inplace=True)
-data["³Ì¤p½u¶Z"].fillna(data["³Ì¤p½u¶Z"].mean(), inplace=True)
-data["¥X³f­±¿n"].fillna(data["¥X³f­±¿n"].mean(), inplace=True)
-data["À£½¤³t«×"].fillna(data["À£½¤³t«×"].mean(), inplace=True)
-#data["À£½¤"] = 'str' + data["À£½¤"].astype(str)
-#data["«e³B²z"] = 'str' + data["«e³B²z"].astype(str)
+data = pd.read_csv("view_parameters_yield_mapping.csv", header=0, encoding = 'big5')
+data.columns = [u"å±¤åˆ¥åç¨±",u"æ’æ¿æ•¸",u"æœ€å°ç·šå¾‘",u"æœ€å°ç·šè·",u"å‡ºè²¨é¢ç©",
+                u"ä¹¾è†œç¨®é¡",u"å£“è†œæ–¹å¼",u"å£“è†œé€Ÿåº¦",u"å£“è†œæ©Ÿå°",u"æ›å…‰æ©Ÿå°",
+                u"E1å» åˆ¥",u"E1ç·šåˆ¥",u"å‰è™•ç†",u"å£“è†œ",u"ä¸è‰¯ç‡2"]
+data[u"æœ€å°ç·šå¾‘"].fillna(data[u"æœ€å°ç·šå¾‘"].mean(), inplace=True)
+data[u"æœ€å°ç·šè·"].fillna(data[u"æœ€å°ç·šè·"].mean(), inplace=True)
+data[u"å‡ºè²¨é¢ç©"].fillna(data[u"å‡ºè²¨é¢ç©"].mean(), inplace=True)
+data[u"å£“è†œé€Ÿåº¦"].fillna(data[u"å£“è†œé€Ÿåº¦"].mean(), inplace=True)
 data.fillna("NAN")
 feat_labels = data.columns[0:-1]
+
 # Encode data columns
 from sklearn.preprocessing import LabelEncoder
 class_le1 = LabelEncoder()
@@ -114,16 +126,16 @@ class_le7 = LabelEncoder()
 class_le8 = LabelEncoder()
 class_le9 = LabelEncoder()
 class_le10 = LabelEncoder()
-data["¼h§O¦WºÙ"] = class_le1.fit_transform(data["¼h§O¦WºÙ"])
-data["±ÆªO¼Æ"] = class_le2.fit_transform(data["±ÆªO¼Æ"])
-data["°®½¤ºØÃş"] = class_le3.fit_transform(data["°®½¤ºØÃş"])
-data["À£½¤¤è¦¡"] = class_le4.fit_transform(data["À£½¤¤è¦¡"])
-data["À£½¤¾÷¥x"] = class_le5.fit_transform(data["À£½¤¾÷¥x"])
-data["Ãn¥ú¾÷¥x"] = class_le6.fit_transform(data["Ãn¥ú¾÷¥x"])
-data["E1¼t§O"] = class_le7.fit_transform(data["E1¼t§O"])
-data["E1½u§O"] = class_le8.fit_transform(data["E1½u§O"])
-data["«e³B²z"] = class_le9.fit_transform(data["«e³B²z"])
-data["À£½¤"] = class_le10.fit_transform(data["À£½¤"])
+data[u"å±¤åˆ¥åç¨±"] = class_le1.fit_transform(data[u"å±¤åˆ¥åç¨±"])
+data[u"æ’æ¿æ•¸"] = class_le2.fit_transform(data[u"æ’æ¿æ•¸"])
+data[u"ä¹¾è†œç¨®é¡"] = class_le3.fit_transform(data[u"ä¹¾è†œç¨®é¡"])
+data[u"å£“è†œæ–¹å¼"] = class_le4.fit_transform(data[u"å£“è†œæ–¹å¼"])
+data[u"å£“è†œæ©Ÿå°"] = class_le5.fit_transform(data[u"å£“è†œæ©Ÿå°"])
+data[u"æ›å…‰æ©Ÿå°"] = class_le6.fit_transform(data[u"æ›å…‰æ©Ÿå°"])
+data[u"E1å» åˆ¥"] = class_le7.fit_transform(data[u"E1å» åˆ¥"])
+data[u"E1ç·šåˆ¥"] = class_le8.fit_transform(data[u"E1ç·šåˆ¥"])
+data[u"å‰è™•ç†"] = class_le9.fit_transform(data[u"å‰è™•ç†"])
+data[u"å£“è†œ"] = class_le10.fit_transform(data[u"å£“è†œ"])
 
 # Split trining data and testing data
 X = data.iloc[:, 0:14]
@@ -134,15 +146,18 @@ trX, teX, trY, teY = train_test_split(
     X, y, test_size=0.2, random_state=0)
 
 from sklearn import tree
-clf = tree.DecisionTreeClassifier(criterion='entropy', max_depth=4, random_state=0)
+clf = tree.DecisionTreeClassifier(criterion='entropy', 
+                                  max_depth=5, 
+                                  min_samples_leaf=5, 
+                                  random_state=0)
 clf = clf.fit(trX, trY)
 
 import pydotplus 
 dot_data = tree.export_graphviz(clf,
-                                feature_names=["¼h§O¦WºÙ","±ÆªO¼Æ","³Ì¤p½u®|","³Ì¤p½u¶Z",
-                                            "¥X³f­±¿n","°®½¤ºØÃş","À£½¤¤è¦¡","À£½¤³t«×",
-                                            "À£½¤¾÷¥x","Ãn¥ú¾÷¥x","E1¼t§O","E1½u§O",
-                                            "«e³B²z","À£½¤"],
+                                feature_names=["å±¤åˆ¥åç¨±","æ’æ¿æ•¸","æœ€å°ç·šå¾‘","æœ€å°ç·šè·",
+                                            "å‡ºè²¨é¢ç©","ä¹¾è†œç¨®é¡","å£“è†œæ–¹å¼","å£“è†œé€Ÿåº¦",
+                                            "å£“è†œæ©Ÿå°","æ›å…‰æ©Ÿå°","E1å» åˆ¥","E1ç·šåˆ¥",
+                                            "å‰è™•ç†","å£“è†œ"],
                                 class_names=["A","B","C","D","E", "F"],
                                 filled=True,
                                 rounded=True,
@@ -154,21 +169,21 @@ graph.write_pdf("yields.pdf")
 ######### Part III #########
 # -*- coding: big5 -*-
 # coding=Big5
+from sklearn import preprocessing
 import numpy as np
 import pandas as pd
 # Import data
-data = pd.read_csv("view_parameters_yield_mapping3.csv", header=0, encoding = 'big5')
-data.columns = ["¼h§O¦WºÙ","±ÆªO¼Æ","³Ì¤p½u®|","³Ì¤p½u¶Z","¥X³f­±¿n",
-                "°®½¤ºØÃş","À£½¤¤è¦¡","À£½¤³t«×","À£½¤¾÷¥x","Ãn¥ú¾÷¥x",
-                "E1¼t§O","E1½u§O","«e³B²z","À£½¤","¤£¨}²v2"]
-data["³Ì¤p½u®|"].fillna(data["³Ì¤p½u®|"].mean(), inplace=True)
-data["³Ì¤p½u¶Z"].fillna(data["³Ì¤p½u¶Z"].mean(), inplace=True)
-data["¥X³f­±¿n"].fillna(data["¥X³f­±¿n"].mean(), inplace=True)
-data["À£½¤³t«×"].fillna(data["À£½¤³t«×"].mean(), inplace=True)
-#data["À£½¤"] = 'str' + data["À£½¤"].astype(str)
-#data["«e³B²z"] = 'str' + data["«e³B²z"].astype(str)
+data = pd.read_csv("view_parameters_yield_mapping.csv", header=0, encoding = 'big5')
+data.columns = [u"å±¤åˆ¥åç¨±",u"æ’æ¿æ•¸",u"æœ€å°ç·šå¾‘",u"æœ€å°ç·šè·",u"å‡ºè²¨é¢ç©",
+                u"ä¹¾è†œç¨®é¡",u"å£“è†œæ–¹å¼",u"å£“è†œé€Ÿåº¦",u"å£“è†œæ©Ÿå°",u"æ›å…‰æ©Ÿå°",
+                u"E1å» åˆ¥",u"E1ç·šåˆ¥",u"å‰è™•ç†",u"å£“è†œ",u"ä¸è‰¯ç‡2"]
+data[u"æœ€å°ç·šå¾‘"].fillna(data[u"æœ€å°ç·šå¾‘"].mean(), inplace=True)
+data[u"æœ€å°ç·šè·"].fillna(data[u"æœ€å°ç·šè·"].mean(), inplace=True)
+data[u"å‡ºè²¨é¢ç©"].fillna(data[u"å‡ºè²¨é¢ç©"].mean(), inplace=True)
+data[u"å£“è†œé€Ÿåº¦"].fillna(data[u"å£“è†œé€Ÿåº¦"].mean(), inplace=True)
 data.fillna("NAN")
 feat_labels = data.columns[0:-1]
+
 # Encode data columns
 from sklearn.preprocessing import LabelEncoder
 class_le1 = LabelEncoder()
@@ -181,20 +196,26 @@ class_le7 = LabelEncoder()
 class_le8 = LabelEncoder()
 class_le9 = LabelEncoder()
 class_le10 = LabelEncoder()
-data["¼h§O¦WºÙ"] = class_le1.fit_transform(data["¼h§O¦WºÙ"])
-data["±ÆªO¼Æ"] = class_le2.fit_transform(data["±ÆªO¼Æ"])
-data["°®½¤ºØÃş"] = class_le3.fit_transform(data["°®½¤ºØÃş"])
-data["À£½¤¤è¦¡"] = class_le4.fit_transform(data["À£½¤¤è¦¡"])
-data["À£½¤¾÷¥x"] = class_le5.fit_transform(data["À£½¤¾÷¥x"])
-data["Ãn¥ú¾÷¥x"] = class_le6.fit_transform(data["Ãn¥ú¾÷¥x"])
-data["E1¼t§O"] = class_le7.fit_transform(data["E1¼t§O"])
-data["E1½u§O"] = class_le8.fit_transform(data["E1½u§O"])
-data["«e³B²z"] = class_le9.fit_transform(data["«e³B²z"])
-data["À£½¤"] = class_le10.fit_transform(data["À£½¤"])
+data[u"å±¤åˆ¥åç¨±"] = class_le1.fit_transform(data[u"å±¤åˆ¥åç¨±"])
+data[u"æ’æ¿æ•¸"] = class_le2.fit_transform(data[u"æ’æ¿æ•¸"])
+data[u"ä¹¾è†œç¨®é¡"] = class_le3.fit_transform(data[u"ä¹¾è†œç¨®é¡"])
+data[u"å£“è†œæ–¹å¼"] = class_le4.fit_transform(data[u"å£“è†œæ–¹å¼"])
+data[u"å£“è†œæ©Ÿå°"] = class_le5.fit_transform(data[u"å£“è†œæ©Ÿå°"])
+data[u"æ›å…‰æ©Ÿå°"] = class_le6.fit_transform(data[u"æ›å…‰æ©Ÿå°"])
+data[u"E1å» åˆ¥"] = class_le7.fit_transform(data[u"E1å» åˆ¥"])
+data[u"E1ç·šåˆ¥"] = class_le8.fit_transform(data[u"E1ç·šåˆ¥"])
+data[u"å‰è™•ç†"] = class_le9.fit_transform(data[u"å‰è™•ç†"])
+data[u"å£“è†œ"] = class_le10.fit_transform(data[u"å£“è†œ"])
 
 
 # Split trining data and testing data
-X = data.iloc[:, 0:14].as_matrix()
+X = preprocessing.scale(data.iloc[:, 0:14].as_matrix())
+
+#from sklearn.preprocessing import StandardScaler
+#sc = StandardScaler()
+#sc.fit(X)
+#X_std = sc.transform(X)
+
 # To solve the error of Sci-kit learn pipeline returns indexError: 
 # too many indices for array
 y = data.iloc[:, 14:15].as_matrix().ravel()
@@ -215,7 +236,6 @@ pipe_lr = Pipeline([('scl', StandardScaler()),
 pipe_lr.fit(trX, trY)
 print('Test Accuracy: %.3f' % pipe_lr.score(teX, teY))
 y_pred = pipe_lr.predict(teX)
-
 
 
 ######### Part IV K-fold cross-validation #########
