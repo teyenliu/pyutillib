@@ -6,10 +6,17 @@ import numpy as np
 import pandas as pd
 # Import data
 data = pd.read_csv("view_parameters_yield_mapping3_new.csv", header=0, encoding = 'big5')
-data.columns = [u"作業線別",u"最小線徑",u"最小線距",u"壓膜速度",
-                u"電鍍時間",u"電流(A)",u"Avg",u"標準差",u"不良率"]
-data.dropna()
-feat_labels = data.columns[0:-1]
+#data.columns = [u"作業線別",u"最小線徑",u"最小線距",u"壓膜速度",
+#                u"電鍍時間",u"電流(A)",u"Avg",u"標準差",u"不良率"]
+data = data.dropna()
+
+# Split trining data and testing data
+feature_num = data.shape[1]
+X = data.iloc[:, 0:feature_num -1]
+y = data.iloc[:, feature_num - 1:feature_num].as_matrix().ravel()
+
+# Performing one-hot encoding on nominal features
+X = pd.get_dummies(X).as_matrix()
 
 
 # Visualizing the important characteristics of a dataset
@@ -35,23 +42,72 @@ sns.heatmap(corrmat, vmax=1., cbar=True,annot=True,square=True).xaxis.tick_top()
 plt.show()
 
 # Split trining data and testing data
-#X = preprocessing.scale(data.iloc[:, 0:7].as_matrix())
-data = data.dropna()
-X = data.iloc[:, 1:8].as_matrix()
-y = data.iloc[:, 8:9].as_matrix().ravel()
-
 from sklearn.model_selection import train_test_split
 trX, teX, trY, teY = train_test_split(
-    X, y, test_size=0.2, random_state=0)
+    X, y, test_size=0.3, random_state=0)
 
 
 # Estimating the coefficient of a regression model via scikit-learn
 from sklearn.linear_model import LinearRegression
-slr = LinearRegression()
+from sklearn.ensemble import GradientBoostingRegressor
+#slr = LinearRegression()
+slr = GradientBoostingRegressor(learning_rate=0.03, max_features=0.03, n_estimators=500)
 from sklearn.model_selection import train_test_split
 
 
 slr.fit(trX, trY)
+trY_pred = slr.predict(trX)
+teY_pred = slr.predict(teX)
+accuracy = slr.score(teX, teY)
+print(accuracy)
+
+
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
+
+print('MSE train: %.3f, test: %.3f' % (
+        mean_squared_error(trY, trY_pred),
+        mean_squared_error(teY, teY_pred)))
+print('R^2 train: %.3f, test: %.3f' % (
+        r2_score(trY, trY_pred),
+        r2_score(teY, teY_pred)))
+
+
+#======================== polynomial regression ============================ 
+# -*- coding: big5 -*-
+# coding=Big5
+from sklearn import preprocessing
+import numpy as np
+import pandas as pd
+# Import data
+data = pd.read_csv("view_parameters_yield_mapping3_new.csv", header=0, encoding = 'big5')
+#data.columns = [u"作業線別",u"最小線徑",u"最小線距",u"壓膜速度",
+#                u"電鍍時間",u"電流(A)",u"Avg",u"標準差",u"不良率"]
+data = data.dropna()
+
+# Split trining data and testing data
+feature_num = data.shape[1]
+X = data.iloc[:, 0:feature_num -1]
+y = data.iloc[:, feature_num - 1:feature_num].as_matrix().ravel()
+
+
+# Performing one-hot encoding on nominal features
+X = pd.get_dummies(X).as_matrix()
+
+from sklearn.preprocessing import PolynomialFeatures
+# create quadratic and features
+poly = PolynomialFeatures(degree=2)
+X_poly = poly.fit_transform(X)
+
+from sklearn.model_selection import train_test_split
+trX, teX, trY, teY = train_test_split(
+    X_poly, y, test_size=0.3, random_state=0)
+
+# Estimating the coefficient of a regression model via scikit-learn
+from sklearn.linear_model import LinearRegression
+slr = LinearRegression()
+regr = slr.fit(trX, trY)
+
 trY_pred = slr.predict(trX)
 teY_pred = slr.predict(teX)
 
@@ -66,30 +122,11 @@ print('R^2 train: %.3f, test: %.3f' % (
         r2_score(teY, teY_pred)))
 
 
-#======================== polynomial regression ============================ 
-from sklearn.preprocessing import PolynomialFeatures
-# create quadratic features
-quadratic = PolynomialFeatures(degree=2)
-cubic = PolynomialFeatures(degree=3)
-trX_quad = quadratic.fit_transform(trX)
-trX_cubic = cubic.fit_transform(trX)
-
-
-regr = slr.fit(trX_quad, trY)
-y_quad_fit = regr.predict(quadratic.fit_transform(X_fit))
-quadratic_r2 = r2_score(y, regr.predict(X_quad))
-
-regr = regr.fit(X_cubic, y)
-y_cubic_fit = regr.predict(cubic.fit_transform(X_fit))
-cubic_r2 = r2_score(y, regr.predict(X_cubic))
-
-
 #============================ RandomForestRegressor ==========================
 from sklearn.ensemble import RandomForestRegressor
 
 forest = RandomForestRegressor(n_estimators=100, 
                                criterion='mse',
-                               alpha=0.1, 
                                random_state=1, 
                                n_jobs=-1)
 forest.fit(trX, trY)
@@ -121,6 +158,9 @@ lasso.fit(trX, trY)
 trY_pred = lasso.predict(trX)
 teY_pred = lasso.predict(teX)
 
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
+
 print('MSE train: %.3f, test: %.3f' % (
         mean_squared_error(trY, trY_pred),
         mean_squared_error(teY, teY_pred)))
@@ -142,3 +182,21 @@ print('MSE train: %.3f, test: %.3f' % (
 print('R^2 train: %.3f, test: %.3f' % (
         r2_score(trY, trY_pred),
         r2_score(teY, teY_pred)))
+# ====================================================================
+import matplotlib.pyplot as plt
+plt.figure()
+#plt.subplot(211)
+plt.plot(teY[:], 'bo', teY_pred[:], 'k')
+plt.legend(['Unitech testing', 'Predicted prediction'], loc='upper left')
+plt.show()
+
+
+#import csv
+#writer = csv.writer(open("results.csv", 'w'))
+#for i in range(teY.shape[0]):
+#    writer.writerow(teY[i])
+
+np.savetxt('results.csv', (np.reshape(teY,(-1,1)), np.reshape(teY_pred,(-1,1))), delimiter=',')
+        
+
+        
