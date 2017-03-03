@@ -6,8 +6,8 @@ import numpy as np
 import pandas as pd
 # Import data
 data = pd.read_csv("view_parameters_yield_mapping3_new.csv", header=0, encoding = 'big5')
-#data.columns = [u"�@�~�u�O",u"�̤p�u�|",u"�̤p�u�Z",u"�����t��",
-#                u"�q��ɶ�",u"�q�y(A)",u"Avg",u"�зǮt",u"���}�v"]
+#data.columns = [u"§@·~½u§O",u"³Ì¤p½u®|",u"³Ì¤p½u¶Z",u"À£½¤³t«×",
+#                u"¹qÁá®É¶¡",u"¹q¬y(A)",u"Avg",u"¼Ð·Ç®t",u"¤£¨}²v"]
 data = data.dropna()
 
 # Split trining data and testing data
@@ -50,8 +50,8 @@ trX, teX, trY, teY = train_test_split(
 # Estimating the coefficient of a regression model via scikit-learn
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import GradientBoostingRegressor
-#slr = LinearRegression()
-slr = GradientBoostingRegressor(learning_rate=0.03, max_features=0.03, n_estimators=500)
+slr = LinearRegression()
+#slr = GradientBoostingRegressor(learning_rate=0.03, max_features=0.03, n_estimators=500)
 from sklearn.model_selection import train_test_split
 
 
@@ -81,8 +81,8 @@ import numpy as np
 import pandas as pd
 # Import data
 data = pd.read_csv("view_parameters_yield_mapping3_new.csv", header=0, encoding = 'big5')
-#data.columns = [u"�@�~�u�O",u"�̤p�u�|",u"�̤p�u�Z",u"�����t��",
-#                u"�q��ɶ�",u"�q�y(A)",u"Avg",u"�зǮt",u"���}�v"]
+#data.columns = [u"§@·~½u§O",u"³Ì¤p½u®|",u"³Ì¤p½u¶Z",u"À£½¤³t«×",
+#                u"¹qÁá®É¶¡",u"¹q¬y(A)",u"Avg",u"¼Ð·Ç®t",u"¤£¨}²v"]
 data = data.dropna()
 
 # Split trining data and testing data

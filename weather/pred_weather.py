@@ -12,6 +12,7 @@ import io
 import requests
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.linear_model import LinearRegression
 # from sklearn import svm
 import matplotlib.pyplot as plt
  
@@ -58,7 +59,8 @@ accuracy = clf.score(X_test, Y_test)
 print(accuracy)  # 0.965156260089
 """
  
-clf = GradientBoostingRegressor(learning_rate=0.03, max_features=0.03, n_estimators=500)
+#clf = GradientBoostingRegressor(learning_rate=0.03, max_features=0.03, n_estimators=500)
+clf = LinearRegression()
 clf.fit(X, Y)
  
 predict_X = []
