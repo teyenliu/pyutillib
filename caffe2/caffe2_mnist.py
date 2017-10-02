@@ -10,7 +10,7 @@ core.GlobalInit(['caffe2', '--caffe2_log_level=0'])
 caffe2_root = '~/caffe2'
 
 
-data_folder = '/home/r300/git/caffe2/caffe2/python/tutorials/tutorial_data/mnist'
+data_folder = '/home/liudanny/git/caffe2/caffe2/python/tutorials/tutorial_data/mnist'
 
 workspace.ResetWorkspace()
 device_opts = caffe2_pb2.DeviceOption()
@@ -116,7 +116,8 @@ def AddBookkeepingOperators(model):
 train_model = cnn.CNNModelHelper(order='NCHW', name='mnist_train')
 train_net_def = train_model.net.Proto()
 train_net_def.device_option.CopyFrom(device_opts)
-train_model.param_init_net.RunAllOnGPU(gpu_id=0, use_cudnn=True)
+train_model.param_init_net.RunAllOnGPU() #gpu_id=0, use_cudnn=True
+train_model.net.RunAllOnGPU()
 
 # Read data and label
 data, label = AddInput(train_model, batch_size=64, db=os.path.join(data_folder, 'mnist-train-nchw-leveldb'), db_type='leveldb')
@@ -131,7 +132,8 @@ AddBookkeepingOperators(train_model)
 test_model = cnn.CNNModelHelper(order='NCHW', name='mnist_test', init_params=False)
 test_net_def = test_model.net.Proto()
 test_net_def.device_option.CopyFrom(device_opts)
-test_model.param_init_net.RunAllOnGPU(gpu_id=0, use_cudnn=True)
+test_model.param_init_net.RunAllOnGPU() #gpu_id=0, use_cudnn=True
+test_model.net.RunAllOnGPU()
 
 # Read data and label
 data, label = AddInput(test_model, batch_size=100, db=os.path.join(data_folder, 'mnist-test-nchw-leveldb'), db_type='leveldb')
