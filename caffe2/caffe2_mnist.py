@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 
+import time
 import numpy as np, os, shutil
 from   matplotlib import pyplot
 from   caffe2.python import core, cnn, net_drawer, workspace, visualize
 from caffe2.proto import caffe2_pb2
 
 # Initialization
-core.GlobalInit(['caffe2', '--caffe2_log_level=0'])
+core.GlobalInit(['caffe2', '--caffe2_log_level=2'])
 caffe2_root = '~/caffe2'
 
 
-data_folder = '/home/liudanny/git/caffe2/caffe2/python/tutorials/tutorial_data/mnist'
+data_folder = '/home/r300/git/caffe2/caffe2/python/tutorials/tutorial_data/mnist'
 
 workspace.ResetWorkspace()
 device_opts = caffe2_pb2.DeviceOption()
@@ -99,7 +100,7 @@ def AddTrainingOperators(model, softmax, label):
         model.WeightedSum([param, ONE, param_grad, LR], param)
         
     # every 20 iterations will do checkpoint
-    model.Checkpoint([ITER] + model.params, [], db='mnist_lenet_checkpoint_%05d.leveldb', db_type='leveldb', every=20)
+    #model.Checkpoint([ITER] + model.params, [], db='mnist_lenet_checkpoint_%05d.leveldb', db_type='leveldb', every=20)
     
     
 # Print out the result
@@ -113,7 +114,7 @@ def AddBookkeepingOperators(model):
         
 
 # Here is going to train CNN Model
-train_model = cnn.CNNModelHelper(order='NCHW', name='mnist_train')
+train_model = cnn.CNNModelHelper(order='NCHW', name='mnist_train', use_cudnn=True, cudnn_exhaustive_search=True)
 train_net_def = train_model.net.Proto()
 train_net_def.device_option.CopyFrom(device_opts)
 train_model.param_init_net.RunAllOnGPU() #gpu_id=0, use_cudnn=True
@@ -126,10 +127,10 @@ softmax = AddLeNetModel(train_model, data)
 # Add training setting
 AddTrainingOperators(train_model, softmax, label)
 # Add logging
-AddBookkeepingOperators(train_model)
+#AddBookkeepingOperators(train_model)
 
 # Here is going to test CN model
-test_model = cnn.CNNModelHelper(order='NCHW', name='mnist_test', init_params=False)
+test_model = cnn.CNNModelHelper(order='NCHW', name='mnist_test', use_cudnn=True, cudnn_exhaustive_search=True)
 test_net_def = test_model.net.Proto()
 test_net_def.device_option.CopyFrom(device_opts)
 test_model.param_init_net.RunAllOnGPU() #gpu_id=0, use_cudnn=True
@@ -158,19 +159,20 @@ total_iters = 200
 accuracy = np.zeros(total_iters)
 loss     = np.zeros(total_iters)
 
-# Learning
+# Training
+start = time.time()
 for i in xrange(total_iters):
     workspace.RunNet(train_model.net.Proto().name)
     
     # plotting charts
-    accuracy[i] = workspace.FetchBlob('accuracy')
-    loss[i]     = workspace.FetchBlob('loss')
-    pyplot.clf()
-    pyplot.plot(accuracy, 'r')
-    pyplot.plot(loss, 'b')
-    pyplot.legend(('loss', 'accuracy'), loc='upper right')
-    pyplot.pause(.01)
-
+    #accuracy[i] = workspace.FetchBlob('accuracy')
+    #loss[i]     = workspace.FetchBlob('loss')
+    #pyplot.clf()
+    #pyplot.plot(accuracy, 'r')
+    #pyplot.plot(loss, 'b')
+    #pyplot.legend(('loss', 'accuracy'), loc='upper right')
+    #pyplot.pause(.01)
+print('Training time is Spent: {}'.format((time.time() - start) / total_iters))
     
 # Begin to do testing
 
@@ -179,15 +181,19 @@ workspace.RunNetOnce(test_model.param_init_net)
 workspace.CreateNet(test_model.net)
 
 # pyplot
+total_t_iters = 100
 test_accuracy = np.zeros(100)
 
 # testing
-for i in range(100):
+start = time.time()
+for i in xrange(total_t_iters):
     workspace.RunNet(test_model.net.Proto().name)
     test_accuracy[i] = workspace.FetchBlob('accuracy')
+print('Testing time is Spent: {}'.format((time.time() - start) / total_t_iters))
+
 
 # plotting the result
-pyplot.plot(test_accuracy, 'r')
-pyplot.title('Acuracy over test batches.')
-print('test_accuracy: %f' % test_accuracy.mean())
+#pyplot.plot(test_accuracy, 'r')
+#pyplot.title('Acuracy over test batches.')
+#print('test_accuracy: %f' % test_accuracy.mean())
 
