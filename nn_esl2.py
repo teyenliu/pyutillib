@@ -37,7 +37,9 @@ scalerY = preprocessing.StandardScaler().fit(dataY)
 dataY = scalerY.transform(dataY)
 
 # Split trining data and testing data
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
+from sklearn.cross_validation import train_test_split
+
 trX, teX, trY, teY = train_test_split(
     dataX, dataY, test_size=0.3, random_state=0)
 
