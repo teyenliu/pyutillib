@@ -58,12 +58,9 @@ n_input = 4
 n_final = 2
 
 
-def print_tf_variables(session, vars_collection, copy_l1_output, copy_l2_output):
+def print_tf_variables(session, vars_collection):
     for var in vars_collection:
         print(var.name, ", ", session.run(var))
-    # FIXME: it seams that we cannot print tensors
-    #print("copy_l1_output: ", copy_l1_output.eval())
-    #print("copy_l2_output: ", copy_l2_output.eval())
 
 
 # add layers with variables in cpu
@@ -79,11 +76,8 @@ def add_layers_cpu_vars(x, collection):
     with tf.name_scope('layer_final'):
         layer_final = tf.add(tf.matmul(layer_2, weights['weights_output']),
                                    biases['biases_output'])
-    with tf.control_dependencies([layer_final]):
-        get_l1_output = tf.identity(layer_1)
-        get_l2_output = tf.identity(layer_2)
 
-    return layer_final, get_l1_output, get_l2_output
+    return layer_final, layer_1, layer_2
 
 
 # add layers with variables in gpu
@@ -105,6 +99,7 @@ def add_layers_gpu_vars(x, collection):
 
     return layer_final, get_l1_output, get_l2_output
 
+
 # define cost/loss function
 def add_cost(final_output):
     with tf.name_scope('cost'):
@@ -125,10 +120,6 @@ with tf.name_scope('CPU0'):
         with tf.name_scope('inputs'):
             X = tf.placeholder("float32", [None, n_input], name="ESL_xs")
             Y = tf.placeholder("float32", [None, n_final], name="ESL_ys")
-    
-        #with tf.name_scope('layer_outputs'):
-        #    l1_output = tf.Variable(tf.zeros([BATCH_SIZE, n_hidden_1], name='hl1_output'))
-        #    l2_output = tf.Variable(tf.zeros([BATCH_SIZE, n_hidden_2], name='hl2_output'))
     
         with tf.name_scope('weights'):
             weights = {
@@ -180,8 +171,7 @@ with tf.name_scope('CPU0'):
                     #tf.summary.histogram('layer1' + '/biases', gpu_biases['gpu_biases_hl1'])
                     #tf.summary.histogram('layer2' + '/biases', gpu_biases['gpu_biases_hl2'])
                     #tf.summary.histogram('biases_output' + '/gpu_biases', gpu_biases['gpu_biases_output'])
-            
-            
+
                 # define layer and model
                 py_x, get_l1_output, get_l2_output = add_layers_gpu_vars(X, vars_collection) 
                 
@@ -189,9 +179,6 @@ with tf.name_scope('CPU0'):
                 copy_variable1 = weights['weights_hl1'].assign(gpu_weights['gpu_weights_hl1'])
                 copy_variable2 = weights['weights_hl2'].assign(gpu_weights['gpu_weights_hl2'])
                 copy_variableo = weights['weights_output'].assign(gpu_weights['gpu_weights_output'])
-                #copy_l1_output = l1_output.assign(get_l1_output)
-                #copy_l2_output = l2_output.assign(get_l2_output)
- 
 
         # define loss function
         cost = add_cost(py_x)
@@ -225,14 +212,17 @@ with tf.name_scope('CPU0'):
                 # Train in batches of 4 inputs
                 for start in range(0, n_samples, BATCH_SIZE):
                     end = start + BATCH_SIZE
-                    sess.run(train_op, feed_dict={X: trX[start:end], Y: trY[start:end]})
+                    _, _l1_out, _l2_out = sess.run([train_op, get_l1_output, get_l2_output], 
+                                             feed_dict={X: trX[start:end], Y: trY[start:end]})
+                    print "get_l1_output:", _l1_out
+                    print "get_l2_output:", _l2_out
 
                 # Record the summary of weights and biases
                 if epoch % 50 == 0:
                     rs = sess.run(merged,feed_dict={X: trX, Y: trY})
                     writer.add_summary(rs, epoch)
                     # print out the temp outputs
-                    print_tf_variables(sess, vars_collection, get_l1_output, get_l2_output)
+                    print_tf_variables(sess, vars_collection)
     
                 # Loop over all batches
                 # Display logs per epoch step
