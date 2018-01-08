@@ -184,6 +184,11 @@ def trainESL(checkpoint_path,
     #ret = ge.connect(ge.sgv(l1_swap_in), ge.sgv(matmul_1_grad).remap_inputs([0]))
     ret = ge.connect(ge.sgv("layer1/L1_SwapIn", graph=tf.get_default_graph()), 
                      ge.sgv("optimizer/gradients/layer2/MatMul_grad/MatMul_1", graph=tf.get_default_graph()).remap_inputs([0]))
+
+    l1_swap_out = sess.graph.get_operation_by_name("layer1/L1_SwapOut")
+    add_1_grad_sum = sess.graph.get_operation_by_name("optimizer/gradients/layer2/Add_grad/Sum")
+    ge.add_control_inputs(l1_swap_out, add_1_grad_sum)
+ 
     sess.close()
     
     graph = tf.get_default_graph()
