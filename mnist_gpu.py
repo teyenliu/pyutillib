@@ -7,51 +7,6 @@ from tensorflow.examples.tutorials.mnist import input_data
 
 mnist = input_data.read_data_sets("/home/liudanny/mnist_data/")
 
-'''
-The purpose is to replace operations' input tensor by our swap in/out operation.
-origin_op: the operation that we have swaped out its output tensor
-swapin_op: the operation that we use its output tensor to swap in
-'''
-def tensor_swapin_and_out(g, origin_op, swapin_op):
-    added_control = False
-    all_ops = g.get_operations()
-    #find the origin_op's output tensor name
-    origin_op_name = origin_op.values()[0].name
-
-    #search the to_swapin_op which use
-    for op in all_ops:
-        for i in range(len(op.inputs)):
-            if ((op.inputs[i].name == origin_op_name) and
-               ("_grad" in op.name)):
-                print("op.name:", op.name)
-                """
-                ('op.name:', u'layer1/L1_SwapOut')
-                ('op.name:', u'layer2/MatMul')
-                ('op.name:', u'optimizer/gradients/layer1/Sigmoid_grad/SigmoidGrad')
-                """
-                #Use connect and remap function to reconnect
-                ge.connect(ge.sgv(swapin_op), ge.sgv(op).remap_inputs([i]))
-                # FIXME:
-                # obviously we cannot add more than 1 control dependency for swap_in op
-                if added_control is False:
-                    added_control = True
-                    print("Control Dependency==> swapin_op:", swapin_op, "op:", op)
-                    add_control_dependency(all_ops, swapin_op, op)
-
-
-# find out the target_op's previous operations
-def add_control_dependency(all_ops, swapin_op, target_op):
-    for tensor in target_op.inputs:
-        if "_grad" in tensor.name:
-            #we need to find this tenor is which operation's output
-            for op in all_ops:
-                for i in range(len(op.outputs)):
-                    if ((op.outputs[i].name == tensor.name) and
-                    ("_grad" in op.name)):
-                        print("swapin_op:", swapin_op, "op:", op)
-                        ge.add_control_inputs(swapin_op, op)
-
-
 def get_model_params():
     gvars = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES)
     return {gvar.op.name: value for gvar, value in zip(gvars, tf.get_default_session().run(gvars))}
@@ -107,29 +62,13 @@ with tf.device('/gpu:0'):
     conv1 = tf.layers.conv2d(X_reshaped, filters=conv1_fmaps, kernel_size=conv1_ksize,
                              strides=conv1_stride, padding=conv1_pad,
                              activation=tf.nn.relu, name="conv1")
-    
-    ### Swap in/out ###
-    #NOTICE: The last op in conv1 is conv1/Relu
-    with tf.device('/cpu:0'):
-        conv1_swapout = tf.identity(conv1, name = "Conv1_SwapOut")
-        conv1_swapin = tf.identity(conv1_swapout, name = "Conv1_SwapIn")
-    
+
     conv2 = tf.layers.conv2d(conv1, filters=conv2_fmaps, kernel_size=conv2_ksize,
                              strides=conv2_stride, padding=conv2_pad,
                              activation=tf.nn.relu, name="conv2")
-
-    ### Swap in/out ###
-    with tf.device('/cpu:0'):
-        conv2_swapout = tf.identity(conv2, name = "Conv2_SwapOut")
-        conv2_swapin = tf.identity(conv2_swapout, name = "Conv2_SwapIn")
     
     with tf.name_scope("pool3"):
         pool3 = tf.nn.max_pool(conv2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding="VALID")
-        ### Swap in/out ###
-        with tf.device('/cpu:0'):
-            pool3_swapout = tf.identity(pool3, name = "Pool3_SwapOut")
-            pool3_swapin = tf.identity(pool3_swapout, name = "Pool3_SwapIn")
-
         pool3_flat = tf.reshape(pool3, shape=[-1, pool3_fmaps * 14 * 14])
         pool3_flat_drop = tf.layers.dropout(pool3_flat, conv2_dropout_rate, training=training)
     
@@ -157,33 +96,12 @@ with tf.name_scope("init_and_save"):
     saver = tf.train.Saver()
 	
 graph = tf.get_default_graph()
-graph.as_graph_def()
-writer = tf.summary.FileWriter("./simple_graph_events")
-writer.add_graph(graph=graph)
-
-
-### Swap in/out ###
-graph = tf.get_default_graph()
-origin_op = graph.get_operation_by_name("conv1/Relu")
-swapin_op = graph.get_operation_by_name("Conv1_SwapIn")
-tensor_swapin_and_out(graph, origin_op, swapin_op)
-
-origin_op = graph.get_operation_by_name("conv2/Relu")
-swapin_op = graph.get_operation_by_name("Conv2_SwapIn")
-tensor_swapin_and_out(graph, origin_op, swapin_op)
-
-origin_op = graph.get_operation_by_name("pool3/MaxPool")
-swapin_op = graph.get_operation_by_name("pool3/Pool3_SwapIn")
-tensor_swapin_and_out(graph, origin_op, swapin_op)
-
-### Check the DataFlow Graph ###
-graph = tf.get_default_graph()
 writer = tf.summary.FileWriter("./simple_graph_events")
 writer.add_graph(graph=graph)
 
 
 n_epochs = 1000
-batch_size = 60
+batch_size = 7133
 
 best_loss_val = np.infty
 check_interval = 500
