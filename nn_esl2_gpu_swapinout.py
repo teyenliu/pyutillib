@@ -161,6 +161,50 @@ class PredictESLService(object):
         teY = scalerY.inverse_transform(teY)
         return teY
 
+'''
+The purpose is to replace operations' input tensor by our swap in/out operation.
+origin_op: the operation that we have swaped out its output tensor
+swapin_op: the operation that we use its output tensor to swap in
+'''
+def tensor_swapin_and_out(sess, origin_op, swapin_op):
+    added_control = False
+    all_ops = sess.graph.get_operations()
+    #find the origin_op's output tensor name
+    origin_op_name = origin_op.values()[0].name
+
+    #search the to_swapin_op which use
+    for op in all_ops:
+        for i in range(len(op.inputs)):
+            if ((op.inputs[i].name == origin_op_name) and
+               ("_grad" in op.name)):
+                print("op.name:", op.name)
+                """
+                ('op.name:', u'layer1/L1_SwapOut')
+                ('op.name:', u'layer2/MatMul')
+                ('op.name:', u'optimizer/gradients/layer1/Sigmoid_grad/SigmoidGrad')
+                """
+                #Use connect and remap function to reconnect
+                ge.connect(ge.sgv(swapin_op), ge.sgv(op).remap_inputs([i]))
+                # FIXME:
+                # obviously we cannot add more than 1 control dependency for swap_in op
+                if added_control is False:
+                    added_control = True
+                    add_control_dependency(all_ops, swapin_op, op)
+                    
+
+# find out the target_op's previous operations
+def add_control_dependency(all_ops, swapin_op, target_op):
+    for tensor in target_op.inputs:
+        if "_grad" in tensor.name:
+            #we need to find this tenor is which operation's output
+            for op in all_ops:
+                for i in range(len(op.outputs)):
+                    if ((op.outputs[i].name == tensor.name) and
+                    ("_grad" in op.name)):
+                        print("swapin_op:", swapin_op, "op:", op)
+                        ge.add_control_inputs(swapin_op, op)
+
+
 
 def trainESL(checkpoint_path,
              checkpoint_file,
@@ -173,22 +217,26 @@ def trainESL(checkpoint_path,
     ##### Modify the graph #####
     sess = tf.Session()
     all_ops = sess.graph.get_operations()
-    print("all_ops:", all_ops)
     
     #l1_swap_in = sess.graph.get_operation_by_name("layer1/L1_SwapIn")
     #print l1_swap_in.outputs[0]
 
     #matmul_1_grad = sess.graph.get_operation_by_name("optimizer/gradients/layer2/MatMul_grad/MatMul_1")
-    #print matmul_1_grad.inputs[1]
+    #print matmul_1_grad.intputs[1]
         
     #ret = ge.connect(ge.sgv(l1_swap_in), ge.sgv(matmul_1_grad).remap_inputs([0]))
-    ret = ge.connect(ge.sgv("layer1/L1_SwapIn", graph=tf.get_default_graph()), 
-                     ge.sgv("optimizer/gradients/layer2/MatMul_grad/MatMul_1", graph=tf.get_default_graph()).remap_inputs([0]))
+    
+    #ret = ge.connect(ge.sgv("layer1/L1_SwapIn", graph=tf.get_default_graph()), 
+    #                 ge.sgv("optimizer/gradients/layer2/MatMul_grad/MatMul_1", graph=tf.get_default_graph()).remap_inputs([0]))
 
-    l1_swap_out = sess.graph.get_operation_by_name("layer1/L1_SwapOut")
-    add_1_grad_sum = sess.graph.get_operation_by_name("optimizer/gradients/layer2/Add_grad/Sum")
-    ge.add_control_inputs(l1_swap_out, add_1_grad_sum)
- 
+    #replace the op's output tensor which need to replace to swap_in tensor
+    origin_op = sess.graph.get_operation_by_name("layer1/Sigmoid")
+    swapin_op = sess.graph.get_operation_by_name("layer1/L1_SwapIn")
+    tensor_swapin_and_out(sess, origin_op, swapin_op)
+
+    #add control dependency 
+    #add_1_grad_sum = sess.graph.get_operation_by_name("optimizer/gradients/layer2/Add_grad/Sum")
+    #ge.add_control_inputs(swapin_op, add_1_grad_sum)
     sess.close()
     
     graph = tf.get_default_graph()
@@ -226,6 +274,7 @@ def trainESL(checkpoint_path,
             for start in range(0, n_samples, BATCH_SIZE):
                 end = start + BATCH_SIZE
                 sess.run(optimizer, feed_dict={X: trX[start:end], Y: trY[start:end]})
+                return
             
             # Record the summary of weights and biases
             if epoch % 50 == 0:
