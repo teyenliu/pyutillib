@@ -4,6 +4,13 @@ from tensorflow.contrib import graph_editor as ge
 import numpy as np
 import os
 from tensorflow.examples.tutorials.mnist import input_data
+import memory_saving_gradients
+import mem_util
+import linearize as linearize_lib
+
+# monkey patch tf.gradients to point to our custom version, with automatic checkpoint selection
+#tf.__dict__["gradients"] = memory_saving_gradients.gradients_memory
+
 
 mnist = input_data.read_data_sets("/home/liudanny/mnist_data/")
 
@@ -94,6 +101,8 @@ with tf.device('/cpu:0'):
 with tf.name_scope("init_and_save"):
     init = tf.global_variables_initializer()
     saver = tf.train.Saver()
+
+linearize_lib.linearize()
 	
 graph = tf.get_default_graph()
 writer = tf.summary.FileWriter("./simple_graph_events")
@@ -101,7 +110,7 @@ writer.add_graph(graph=graph)
 
 
 n_epochs = 1000
-batch_size = 7133
+batch_size = 4096
 
 best_loss_val = np.infty
 check_interval = 500
@@ -111,12 +120,18 @@ best_model_params = None
 
 config = tf.ConfigProto()
 config.gpu_options.allow_growth=True
+
+
 with tf.Session(config=config) as sess:
     init.run()
     for epoch in range(n_epochs):
         for iteration in range(mnist.train.num_examples // batch_size):
             X_batch, y_batch = mnist.train.next_batch(batch_size)
-            sess.run(training_op, feed_dict={X: X_batch, y: y_batch, training: True})
+            run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
+            run_metadata = tf.RunMetadata()
+            sess.run(training_op, feed_dict={X: X_batch, y: y_batch, training: True},
+                     options=run_options,
+                     run_metadata=run_metadata)
             if iteration % check_interval == 0:
                 loss_val = loss.eval(feed_dict={X: mnist.validation.images,
                                                 y: mnist.validation.labels})
@@ -126,6 +141,9 @@ with tf.Session(config=config) as sess:
                     best_model_params = get_model_params()
                 else:
                     checks_since_last_progress += 1
+                mem_use = mem_util.peak_memory(run_metadata)['/gpu:0']/1e6
+                print("Memory used: %.2f MB "%(mem_use))
+             
         acc_train = accuracy.eval(feed_dict={X: X_batch, y: y_batch})
         acc_val = accuracy.eval(feed_dict={X: mnist.validation.images,
                                            y: mnist.validation.labels})
