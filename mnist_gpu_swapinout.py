@@ -45,6 +45,7 @@ def tensor_swapin_and_out(g, origin_op, swapin_op):
                 if added_control is False:
                     print("Control Dependency==> swapin_op:", swapin_op, "op:", op)
                     add_control_dependency(all_ops, swapin_op, op)
+                      
 
 
 # find out the target_op's previous operations
@@ -55,11 +56,18 @@ def add_control_dependency(all_ops, swapin_op, target_op):
             #we need to find this tenor is which operation's output
             for op in all_ops:
                 for i in range(len(op.outputs)):
-                    if ((op.outputs[i].name == tensor.name)): #and ("_grad" in op.name)):
+                    if ((op.outputs[i].name == tensor.name)): #and ("shape" not in op.name)):
                         added_control = True
                         print("swapin_op:", swapin_op, "which op is added control_dependency:", op)
                         ge.add_control_inputs(swapin_op, op)
 
+
+def run_after(a_tensor, b_tensor):
+    """Force a to run after b"""
+    a = graph.get_operation_by_name(a_tensor)
+    b = graph.get_operation_by_name(b_tensor)
+
+    ge.add_control_inputs(a, b)
 
 def get_model_params():
     gvars = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES)
@@ -134,19 +142,11 @@ with tf.device('/gpu:0'):
         pool3 = tf.nn.max_pool(conv2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding="VALID")
         pool3_flat = tf.reshape(pool3, shape=[-1, pool3_fmaps * 14 * 14])
         pool3_flat_drop = tf.layers.dropout(pool3_flat, conv2_dropout_rate, training=training)
-        
-        '''
-        ### Swap in/out ###
-        with tf.device('/cpu:0'):
-            pool3_swapout = tf.identity(pool3, name = "Pool3_SwapOut")
-            pool3_swapin = tf.identity(pool3_swapout, name = "Pool3_SwapIn")
-        '''
         ### Swap in/out ###
         with tf.device('/cpu:0'):
             pool3_swapout = tf.identity(pool3_flat_drop, name = "Pool3_SwapOut")
             pool3_swapin = tf.identity(pool3_swapout, name = "Pool3_SwapIn")
-
-
+        
     with tf.name_scope("fc1"):
         fc1 = tf.layers.dense(pool3_flat_drop, n_fc1, activation=tf.nn.relu, name="fc1")
         fc1_drop = tf.layers.dropout(fc1, fc1_dropout_rate, training=training)
@@ -183,14 +183,16 @@ origin_op = graph.get_operation_by_name("conv1/Relu")
 swapin_op = graph.get_operation_by_name("Conv1_SwapIn")
 tensor_swapin_and_out(graph, origin_op, swapin_op)
 
-
 origin_op = graph.get_operation_by_name("conv2/Relu")
 swapin_op = graph.get_operation_by_name("Conv2_SwapIn")
 tensor_swapin_and_out(graph, origin_op, swapin_op)
 
+#run_after("Conv1_SwapIn", "Conv2_SwapIn")
+
 origin_op = graph.get_operation_by_name("pool3/dropout/cond/Merge")
 swapin_op = graph.get_operation_by_name("pool3/Pool3_SwapIn")
 tensor_swapin_and_out(graph, origin_op, swapin_op)
+#run_after("pool3/Pool3_SwapIn", "train/gradients/fc1/fc1/MatMul_grad/MatMul_1")
 
 ### Check the DataFlow Graph ###
 graph = tf.get_default_graph()
@@ -199,7 +201,7 @@ writer.add_graph(graph=graph)
 
 
 n_epochs = 1000
-batch_size = 8652
+batch_size = 8651
 
 best_loss_val = np.infty
 check_interval = 500
@@ -207,16 +209,16 @@ checks_since_last_progress = 0
 max_checks_without_progress = 20
 best_model_params = None 
 
+#config = tf.ConfigProto(graph_options=tf.GraphOptions(optimizer_options=tf.OptimizerOptions(opt_level=tf.OptimizerOptions.L0)))
 config = tf.ConfigProto()
 config.gpu_options.allow_growth=True
-#config.gpu_options.per_process_gpu_memory_fraction=0.05
 #config.gpu_options.deferred_deletion_bytes=1024
 
 with tf.Session(config=config) as sess:
     init.run()
     for epoch in range(n_epochs):
         for iteration in range(mnist.train.num_examples // batch_size):
-            print("iteration: %i", iteration)
+            #print("iteration: %i", iteration)
             X_batch, y_batch = mnist.train.next_batch(batch_size)
             run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
             run_metadata = tf.RunMetadata()
