@@ -6,7 +6,7 @@ import os
 from tensorflow.examples.tutorials.mnist import input_data
 import memory_saving_gradients
 import mem_util
-import linearize as linearize_lib
+from tensorflow.contrib.memory_stats.python.ops import memory_stats_ops
 
 # monkey patch tf.gradients to point to our custom version, with automatic checkpoint selection
 #tf.__dict__["gradients"] = memory_saving_gradients.gradients_memory
@@ -102,15 +102,13 @@ with tf.name_scope("init_and_save"):
     init = tf.global_variables_initializer()
     saver = tf.train.Saver()
 
-linearize_lib.linearize()
-	
-graph = tf.get_default_graph()
-writer = tf.summary.FileWriter("./simple_graph_events")
-writer.add_graph(graph=graph)
+#graph = tf.get_default_graph()
+#writer = tf.summary.FileWriter("./simple_graph_events")
+#writer.add_graph(graph=graph)
 
 
 n_epochs = 1000
-batch_size = 4096
+batch_size = 8192
 
 best_loss_val = np.infty
 check_interval = 500
@@ -118,9 +116,20 @@ checks_since_last_progress = 0
 max_checks_without_progress = 20
 best_model_params = None 
 
-config = tf.ConfigProto()
-config.gpu_options.allow_growth=True
+from tensorflow.core.protobuf import rewriter_config_pb2
 
+#rewriter_config_pb2.RewriterConfig.MEMORY_OPTIMIZATION_FIELD_NUMBER = 10
+#rewriter_config_pb2.RewriterConfig.MEMORY_OPTIMIZER_TARGET_NODE_NAME_SCOPE_FIELD_NUMBER = 20
+
+# Grappler's Memory optimization, but no help in this case...
+rewrite_options = rewriter_config_pb2.RewriterConfig(disable_model_pruning=True)
+rewrite_options.memory_optimization = rewriter_config_pb2.RewriterConfig.HEURISTICS
+graph_options = tf.GraphOptions(rewrite_options=rewrite_options) #, infer_shapes=True)
+config = tf.ConfigProto(graph_options=graph_options)
+
+#config = tf.ConfigProto()
+config.gpu_options.allow_growth=True
+config.allow_soft_placement = True
 
 with tf.Session(config=config) as sess:
     init.run()
@@ -141,10 +150,10 @@ with tf.Session(config=config) as sess:
                     best_model_params = get_model_params()
                 else:
                     checks_since_last_progress += 1
-                #mem_use = mem_util.peak_memory(run_metadata)['/gpu:0']/1e6
-                #print("Memory used: %.2f MB "%(mem_use))
                 max_bytes_in_use = sess.run(memory_stats_ops.MaxBytesInUse())/1e6
                 print("Max Memory used: %.2f MB "%(max_bytes_in_use))
+                #mem_use = mem_util.peak_memory(run_metadata)['/gpu:0']/1e6
+                #print("Memory used: %.2f MB "%(mem_use))
              
         acc_train = accuracy.eval(feed_dict={X: X_batch, y: y_batch})
         acc_val = accuracy.eval(feed_dict={X: mnist.validation.images,

@@ -7,8 +7,15 @@ from tensorflow.examples.tutorials.mnist import input_data
 import memory_saving_gradients
 import mem_util
 import linearize as linearize_lib
+from tensorflow.contrib.memory_stats.python.ops import memory_stats_ops
 
-# monkey patch tf.gradients to point to our custom version, with automatic checkpoint selection
+#monkey patch tf.gradients to point to our custom version, with automatic checkpoint selection
+def grads(ys, xs, grad_ys=None, **kwargs):
+    return memory_saving_gradients.gradients(ys, xs, grad_ys,
+                                             checkpoints='memory', **kwargs)
+old_grads = tf.gradients
+tf.__dict__["gradients"] = grads
+print("Running with memory saving")
 #tf.__dict__["gradients"] = memory_saving_gradients.gradients_memory
 
 
@@ -51,7 +58,7 @@ conv2_dropout_rate = 0.25
 
 pool3_fmaps = conv2_fmaps
 
-n_fc1 = 128
+n_fc1 = 8192
 fc1_dropout_rate = 0.5
 
 n_outputs = 10
@@ -102,15 +109,15 @@ with tf.name_scope("init_and_save"):
     init = tf.global_variables_initializer()
     saver = tf.train.Saver()
 
-linearize_lib.linearize()
+#linearize_lib.linearize()
 	
-graph = tf.get_default_graph()
-writer = tf.summary.FileWriter("./simple_graph_events")
-writer.add_graph(graph=graph)
+#graph = tf.get_default_graph()
+#writer = tf.summary.FileWriter("./simple_graph_events2")
+#writer.add_graph(graph=graph)
 
 
 n_epochs = 1000
-batch_size = 4096
+batch_size = 8192
 
 best_loss_val = np.infty
 check_interval = 500
@@ -118,9 +125,9 @@ checks_since_last_progress = 0
 max_checks_without_progress = 20
 best_model_params = None 
 
+
 config = tf.ConfigProto()
 config.gpu_options.allow_growth=True
-
 
 with tf.Session(config=config) as sess:
     init.run()
@@ -141,10 +148,11 @@ with tf.Session(config=config) as sess:
                     best_model_params = get_model_params()
                 else:
                     checks_since_last_progress += 1
-                #mem_use = mem_util.peak_memory(run_metadata)['/gpu:0']/1e6
-                #print("Memory used: %.2f MB "%(mem_use))
-                max_bytes_in_use = sess.run(memory_stats_ops.MaxBytesInUse())/1e6
-                print("Max Memory used: %.2f MB "%(max_bytes_in_use))
+            #mem_use = mem_util.peak_memory(run_metadata)['/gpu:0']/1e6
+            #print("Memory used: %.2f MB "%(mem_use))
+            max_bytes_in_use = sess.run(memory_stats_ops.MaxBytesInUse())/1e6
+            print("Max Memory used: %.2f MB "%(max_bytes_in_use))
+            break
              
         acc_train = accuracy.eval(feed_dict={X: X_batch, y: y_batch})
         acc_val = accuracy.eval(feed_dict={X: mnist.validation.images,
