@@ -46,6 +46,7 @@ with tf.Session() as session:
         session.run(model)
         # 迭代25次,每5次就印出點圖與計算出的線性回歸的線
         for step in range(0, 26):
+                #session.run(optimizer)
                 session.run(train)
                 if (step % 5) == 0:
                         plt.plot(x_point, y_point,

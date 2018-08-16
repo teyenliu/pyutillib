@@ -6,16 +6,16 @@ from   caffe2.python import core, cnn, net_drawer, workspace, visualize, brew
 from caffe2.proto import caffe2_pb2
 
 # Initialization
-core.GlobalInit(['caffe2', '--caffe2_log_level=7'])
+core.GlobalInit(['caffe2', '--caffe2_log_level=1'])
 caffe2_root = '~/caffe2'
 
 
-data_folder = '/home/r300/git/caffe2/caffe2/python/tutorials/tutorial_data/mnist'
+data_folder = '/home/liudanny/git/caffe2/caffe2/python/tutorials/tutorial_data/mnist'
 
 workspace.ResetWorkspace()
-device_opts = caffe2_pb2.DeviceOption()
-device_opts.device_type = caffe2_pb2.CUDA
-device_opts.cuda_gpu_id = 0
+#device_opts = caffe2_pb2.DeviceOption()
+#device_opts.device_type = caffe2_pb2.CUDA
+#device_opts.cuda_gpu_id = 0
 
 #if workspace.has_gpu_support:
 #    device_opts = core.DeviceOption(caffe2_pb2.CUDA, 0)  # Run on GPU
@@ -117,11 +117,11 @@ def AddBookkeepingOperators(model):
 # Here is going to train CNN Model
 train_model = cnn.CNNModelHelper(order='NCHW', name='mnist_train')
 train_net_def = train_model.net.Proto()
-train_net_def.device_option.CopyFrom(device_opts)
-train_model.param_init_net.RunAllOnGPU(gpu_id=0, use_cudnn=True)
+#train_net_def.device_option.CopyFrom(device_opts)
+#train_model.param_init_net.RunAllOnGPU(gpu_id=0, use_cudnn=True)
 
 # Read data and label
-data, label = AddInput(train_model, batch_size=64, db=os.path.join(data_folder, 'mnist-train-nchw-leveldb'), db_type='leveldb')
+data, label = AddInput(train_model, batch_size=64, db=os.path.join(data_folder, 'mnist-train-nchw-lmdb'), db_type='lmdb')
 # Add LeNet model with training data 
 softmax = AddLeNetModel(train_model, data)
 # Add training setting
@@ -132,11 +132,11 @@ AddBookkeepingOperators(train_model)
 # Here is going to test CN model
 test_model = cnn.CNNModelHelper(order='NCHW', name='mnist_test', init_params=False)
 test_net_def = test_model.net.Proto()
-test_net_def.device_option.CopyFrom(device_opts)
-test_model.param_init_net.RunAllOnGPU(gpu_id=0, use_cudnn=True)
+#test_net_def.device_option.CopyFrom(device_opts)
+#test_model.param_init_net.RunAllOnGPU(gpu_id=0, use_cudnn=True)
 
 # Read data and label
-data, label = AddInput(test_model, batch_size=100, db=os.path.join(data_folder, 'mnist-test-nchw-leveldb'), db_type='leveldb')
+data, label = AddInput(test_model, batch_size=100, db=os.path.join(data_folder, 'mnist-test-nchw-lmdb'), db_type='lmdb')
 # Add LeNet model with test data
 softmax = AddLeNetModel(test_model, data)
 # Add the accuracy calculation
@@ -153,11 +153,11 @@ AddLeNetModel(deploy_model, 'data')
 workspace.RunNetOnce(train_model.param_init_net)
 workspace.CreateNet(train_model.net)
 
-from IPython import display
-graph = net_drawer.GetPydotGraph(train_model.net.Proto().op, "multigpus", rankdir="graphs")
-#display.Image(graph.create_png())
-with open("lenet_mnist_gpu.png", "wb") as png:
-    png.write(graph.create_png())
+#from IPython import display
+#graph = net_drawer.GetPydotGraph(train_model.net.Proto().op, "multigpus", rankdir="graphs")
+##display.Image(graph.create_png())
+#with open("lenet_mnist_gpu.png", "wb") as png:
+#    png.write(graph.create_png())
 
 
 # pyplot

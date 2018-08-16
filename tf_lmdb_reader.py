@@ -19,7 +19,7 @@ with tf.Session() as sess:
     queue.enqueue([path]).run()
     queue.close().run()
     with tqdm(total=500, leave=True, smoothing=0.2) as pbar:
-        for i in range(1, 500):
+        for i in range(1, 501):
             k,v = sess.run([key,value])
             #print(k, v)
             pbar.update()

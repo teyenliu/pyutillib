@@ -46,7 +46,7 @@ trX, teX, trY, teY = train_test_split(
 
 
 # Hyper Parameters
-BATCH_SIZE = 16
+BATCH_SIZE = 4
 TIME_STEP = 4          # rnn time step 
 INPUT_SIZE = 1         # rnn input size 
 OUTPUT_SIZE =  2

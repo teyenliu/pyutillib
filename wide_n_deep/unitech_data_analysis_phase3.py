@@ -1,18 +1,20 @@
+# -*- coding: utf-8 -*-
+# coding=utf-8
+
 '''
 Created on Mar 30, 2017
 
 @author: liudanny
 '''
 
-# -*- coding: big5 -*-
-# coding=Big5
+
 from sklearn import preprocessing
 import numpy as np
 import pandas as pd
 # Import data
 data = pd.read_csv("view_parameters_yield_rawdata.csv", header=0, encoding = 'big5')
 # Filter the data by material number and layers
-data = data.loc[(data[u"料號"] == 'A58Z185') & (data[u"層別名稱"] == u"外層")]
+data = data.loc[(data[u'料號'] == 'A58Z185') & (data[u'層別名稱'] == u'外層')]
 data = data.reset_index(drop=True)
 
 plate_num = pd.DataFrame(data[u"排板數"].str.split('*',2).tolist(),
@@ -93,7 +95,8 @@ y = data.iloc[:, feature_num - 1:feature_num].as_matrix().ravel()
 # Performing one-hot encoding on nominal features
 #X = pd.get_dummies(X).as_matrix()
 
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
+from sklearn.cross_validation import train_test_split
 trX, teX, trY, teY = train_test_split(
     X, y, test_size=0.2, random_state=0)
 

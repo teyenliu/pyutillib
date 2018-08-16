@@ -41,7 +41,7 @@ with tf.variable_scope('Loss'):
 with tf.variable_scope('Accuracy'):
     y_pred = tf.cast(z > 0, tf.int32)
     accuracy = tf.reduce_mean(tf.cast(tf.equal(y_pred, y_true), tf.float32))
-    accuracy = tf.Print(accuracy, data=[accuracy], message="accuracy:")
+    accuracy = tf.Print(accuracy, data=[accuracy, tf.timestamp()], message="accuracy:")
 
 # We add the training op ...
 adam = tf.train.AdamOptimizer(1e-2)
@@ -57,19 +57,19 @@ with tf.Session() as sess:
     threads = tf.train.start_queue_runners(coord=coord)
 
     # ... check the accuracy before training (without feed_dict!), ...
-    sess.run(accuracy)
+    sess.run([accuracy])
 
     # ... train ...
     for i in range(5000):
         #  ... without sampling from Python and without a feed_dict !
-        _, loss = sess.run([train_op, loss_op])
+        _, loss, acc = sess.run([train_op, loss_op, accuracy])
 
         # We regularly check the loss
         if i % 500 == 0:
-            print('iter:%d - loss:%f' % (i, loss))
+            print('iter:%d - loss:%f - accuracy:%s' % (i, loss, acc))
 
     # Finally, we check our final accuracy
-    sess.run(accuracy)
+    sess.run([accuracy])
 
     coord.request_stop()
     coord.join(threads)

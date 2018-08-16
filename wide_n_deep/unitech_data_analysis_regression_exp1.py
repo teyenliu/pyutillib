@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
+# coding=utf-8
 
-# -*- coding: big5 -*-
-# coding=Big5
 from sklearn import preprocessing
 import numpy as np
 import pandas as pd
@@ -42,7 +42,8 @@ sns.heatmap(corrmat, vmax=1., cbar=True,annot=True,square=True).xaxis.tick_top()
 plt.show()
 
 # Split trining data and testing data
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
+from sklearn.cross_validation  import train_test_split
 trX, teX, trY, teY = train_test_split(
     X, y, test_size=0.3, random_state=0)
 
@@ -52,7 +53,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import GradientBoostingRegressor
 slr = LinearRegression()
 #slr = GradientBoostingRegressor(learning_rate=0.03, max_features=0.03, n_estimators=500)
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
+from sklearn.cross_validation  import train_test_split
 
 
 slr.fit(trX, trY)
@@ -99,7 +101,8 @@ from sklearn.preprocessing import PolynomialFeatures
 poly = PolynomialFeatures(degree=2)
 X_poly = poly.fit_transform(X)
 
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
+from sklearn.cross_validation  import train_test_split
 trX, teX, trY, teY = train_test_split(
     X_poly, y, test_size=0.3, random_state=0)
 
