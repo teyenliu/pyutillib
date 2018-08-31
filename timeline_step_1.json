@@ -1,0 +1,5144 @@
+{
+    "traceEvents": [
+        {
+            "ph": "M",
+            "args": {
+                "name": "Allocators"
+            },
+            "pid": 0,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/stream:15 Compute"
+            },
+            "pid": 1,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/stream:15 Tensors"
+            },
+            "pid": 2,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/stream:14 Compute"
+            },
+            "pid": 3,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/stream:14 Tensors"
+            },
+            "pid": 4,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/job:localhost/replica:0/task:0/device:CPU:0 Compute"
+            },
+            "pid": 5,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/job:localhost/replica:0/task:0/device:CPU:0 Tensors"
+            },
+            "pid": 6,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/memcpy Compute"
+            },
+            "pid": 7,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/memcpy Tensors"
+            },
+            "pid": 8,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/stream:all Compute"
+            },
+            "pid": 9,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/stream:all Tensors"
+            },
+            "pid": 10,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/job:localhost/replica:0/task:0/device:GPU:0 Compute"
+            },
+            "pid": 11,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/job:localhost/replica:0/task:0/device:GPU:0 Tensors"
+            },
+            "pid": 12,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/stream:13 Compute"
+            },
+            "pid": 13,
+            "name": "process_name"
+        },
+        {
+            "ph": "M",
+            "args": {
+                "name": "/device:GPU:0/stream:13 Tensors"
+            },
+            "pid": 14,
+            "name": "process_name"
+        },
+        {
+            "name": "MEMCPYDtoH",
+            "args": {
+                "name": "edge_3_inputs/training/input",
+                "op": "MEMCPYDtoH"
+            },
+            "pid": 1,
+            "ts": 1535602676626092,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "MEMCPYDtoH",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYDtoH"
+            },
+            "pid": 1,
+            "ts": 1535602676626325,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1346
+        },
+        {
+            "name": "MEMCPYDtoH",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYDtoH"
+            },
+            "pid": 1,
+            "ts": 1535602676647653,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 44810
+        },
+        {
+            "name": "MEMCPYDtoH",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYDtoH"
+            },
+            "pid": 1,
+            "ts": 1535602676770642,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 84939
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "edge_392__arg_inputs/y_0_1",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 3,
+            "ts": 1535602676622584,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "edge_390__arg_inputs/X_0_0",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 3,
+            "ts": 1535602676622977,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3142
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 3,
+            "ts": 1535602676855662,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 95208
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 3,
+            "ts": 1535602676951023,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 47611
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 3,
+            "ts": 1535602677052951,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1492
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "name": "_SOURCE",
+                "op": "NoOp"
+            },
+            "pid": 5,
+            "ts": 1535602676622377,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8
+        },
+        {
+            "name": "_Arg",
+            "args": {
+                "name": "_arg_inputs/X_0_0",
+                "op": "_Arg"
+            },
+            "pid": 5,
+            "ts": 1535602676622394,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 10
+        },
+        {
+            "name": "_Arg",
+            "args": {
+                "name": "_arg_inputs/y_0_1",
+                "op": "_Arg"
+            },
+            "pid": 5,
+            "ts": 1535602676622412,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "edge_392__arg_inputs/y_0_1",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 7,
+            "ts": 1535602676622584,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "edge_390__arg_inputs/X_0_0",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 7,
+            "ts": 1535602676622977,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3142
+        },
+        {
+            "name": "MEMCPYDtoH",
+            "args": {
+                "name": "edge_3_inputs/training/input",
+                "op": "MEMCPYDtoH"
+            },
+            "pid": 7,
+            "ts": 1535602676626092,
+            "cat": "Op",
+            "tid": 1,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "MEMCPYDtoH",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYDtoH"
+            },
+            "pid": 7,
+            "ts": 1535602676626325,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1346
+        },
+        {
+            "name": "MEMCPYDtoH",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYDtoH"
+            },
+            "pid": 7,
+            "ts": 1535602676647653,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 44810
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/output/output/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 7,
+            "ts": 1535602676712302,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1
+        },
+        {
+            "name": "MEMCPYDtoH",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYDtoH"
+            },
+            "pid": 7,
+            "ts": 1535602676770642,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 84939
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 7,
+            "ts": 1535602676855662,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 95208
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 7,
+            "ts": 1535602676951023,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 47611
+        },
+        {
+            "name": "MEMCPYHtoD",
+            "args": {
+                "name": "unknown",
+                "op": "MEMCPYHtoD"
+            },
+            "pid": 7,
+            "ts": 1535602677052951,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1492
+        },
+        {
+            "name": "Assign",
+            "args": {
+                "name": "train/Adam/Assign",
+                "op": "Assign"
+            },
+            "pid": 7,
+            "ts": 1535602677082933,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1
+        },
+        {
+            "name": "Assign",
+            "args": {
+                "name": "train/Adam/Assign_1",
+                "op": "Assign"
+            },
+            "pid": 7,
+            "ts": 1535602677082935,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv1/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 9,
+            "ts": 1535602676626296,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv1/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 9,
+            "ts": 1535602676626366,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv1/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 9,
+            "ts": 1535602676626386,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2324
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv1/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 9,
+            "ts": 1535602676628713,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4342
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "name": "conv1/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 9,
+            "ts": 1535602676633058,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5736
+        },
+        {
+            "name": "Relu",
+            "args": {
+                "name": "conv1/Relu",
+                "op": "Relu"
+            },
+            "pid": 9,
+            "ts": 1535602676638795,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4491
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 9,
+            "ts": 1535602676643290,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4361
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 9,
+            "ts": 1535602676647653,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 9,
+            "ts": 1535602676647660,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 9,
+            "ts": 1535602676647665,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 23783
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 9,
+            "ts": 1535602676671456,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9086
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "name": "conv2/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 9,
+            "ts": 1535602676680545,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 12446
+        },
+        {
+            "name": "Relu",
+            "args": {
+                "name": "conv2/Relu",
+                "op": "Relu"
+            },
+            "pid": 9,
+            "ts": 1535602676692993,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8873
+        },
+        {
+            "name": "MaxPool",
+            "args": {
+                "name": "pool3/MaxPool",
+                "op": "MaxPool"
+            },
+            "pid": 9,
+            "ts": 1535602676701868,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6476
+        },
+        {
+            "name": "Fill",
+            "args": {
+                "name": "train/gradients/zeros_1",
+                "op": "Fill"
+            },
+            "pid": 9,
+            "ts": 1535602676708349,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1015
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "fc1/fc1/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 9,
+            "ts": 1535602676709368,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2739
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "name": "fc1/fc1/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 9,
+            "ts": 1535602676712111,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 22
+        },
+        {
+            "name": "Relu",
+            "args": {
+                "name": "fc1/fc1/Relu",
+                "op": "Relu"
+            },
+            "pid": 9,
+            "ts": 1535602676712135,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 24
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "output/output/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 9,
+            "ts": 1535602676712162,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 24
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "name": "output/output/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 9,
+            "ts": 1535602676712187,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 9,
+            "ts": 1535602676712194,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 9,
+            "ts": 1535602676712199,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 9,
+            "ts": 1535602676712206,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 9,
+            "ts": 1535602676712213,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 9,
+            "ts": 1535602676712223,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 9,
+            "ts": 1535602676712228,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Mul",
+            "args": {
+                "name": "train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/mul",
+                "op": "Mul"
+            },
+            "pid": 9,
+            "ts": 1535602676712233,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/output/output/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676712249,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 20
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/output/output/MatMul_grad/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 9,
+            "ts": 1535602676712271,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 29
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/output/output/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 9,
+            "ts": 1535602676712305,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/output/output/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 9,
+            "ts": 1535602676712310,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 45
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676712357,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676712362,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676712368,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "ReluGrad",
+            "args": {
+                "name": "train/gradients/fc1/fc1/Relu_grad/ReluGrad",
+                "op": "ReluGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676712375,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 30
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676712408,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676712413,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676712417,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/fc1/fc1/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676712430,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 23
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/fc1/fc1/MatMul_grad/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 9,
+            "ts": 1535602676712456,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2556
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/fc1/fc1/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 9,
+            "ts": 1535602676715015,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2668
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676717686,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676717690,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676717696,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676717702,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 73
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676717777,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 76
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676717855,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 104
+        },
+        {
+            "name": "AddN",
+            "args": {
+                "name": "train/gradients/AddN",
+                "op": "AddN"
+            },
+            "pid": 9,
+            "ts": 1535602676717962,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3256
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676721220,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8767
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676729990,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2182
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676732174,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2182
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676734359,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 10770
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676745131,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8699
+        },
+        {
+            "name": "ReluGrad",
+            "args": {
+                "name": "train/gradients/conv2/Relu_grad/ReluGrad",
+                "op": "ReluGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676753831,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 16805
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/conv2/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676858825,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6193
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/conv2/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 9,
+            "ts": 1535602676865023,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676865035,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676865043,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602676865053,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602676951059,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602676951084,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9206
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602676960294,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 10
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602676960309,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 18208
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602676978522,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4557
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 9,
+            "ts": 1535602676983086,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9206
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 9,
+            "ts": 1535602676992296,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4571
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 9,
+            "ts": 1535602676996879,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 48205
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 9,
+            "ts": 1535602677045086,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602677045092,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602677045098,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602677045103,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "ReluGrad",
+            "args": {
+                "name": "train/gradients/conv1/Relu_grad/ReluGrad",
+                "op": "ReluGrad"
+            },
+            "pid": 9,
+            "ts": 1535602677045110,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7821
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/conv1/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 9,
+            "ts": 1535602677052951,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2966
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/conv1/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 9,
+            "ts": 1535602677055919,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602677055926,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602677055931,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4398
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602677060331,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 64
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602677060398,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6182
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 9,
+            "ts": 1535602677066582,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 325
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602677066909,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602677066914,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602677066920,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 9,
+            "ts": 1535602677066926,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4342
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 9,
+            "ts": 1535602677071282,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 11619
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 9,
+            "ts": 1535602677082904,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602677082909,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602677082914,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 9,
+            "ts": 1535602677082918,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Mul",
+            "args": {
+                "name": "train/Adam/mul",
+                "op": "Mul"
+            },
+            "pid": 9,
+            "ts": 1535602677082925,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "Mul",
+            "args": {
+                "name": "train/Adam/mul_1",
+                "op": "Mul"
+            },
+            "pid": 9,
+            "ts": 1535602677082929,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "name": "_SOURCE",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602676622390,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 107
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "output/bias/Adam",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622519,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 41
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "output/bias/Adam_1",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622564,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "train/Adam/learning_rate",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622576,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "train/Adam/beta1",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622586,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "train/Adam/beta2",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622595,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "train/Adam/epsilon",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622603,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "train/gradients/pool3/dropout/cond/dropout/div_grad/BroadcastGradientArgs/_1__cf__11",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622612,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "train/gradients/pool3/dropout/cond/dropout/div_grad/BroadcastGradientArgs/_2__cf__12",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622619,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/ExpandDims/_3__cf__13",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622629,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "inputs/Reshape/shape",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622638,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "inputs/training/input",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622645,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv1/kernel",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622654,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv1/bias",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622664,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv2/kernel",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622673,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv2/bias",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622683,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "pool3/Reshape/shape",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622691,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "fc1/kernel",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622698,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "fc1/bias",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622707,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "output/kernel",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622716,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "output/bias",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622725,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "train/gradients/pool3/dropout/cond/dropout/div_grad/Shape",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622733,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "Const",
+            "args": {
+                "name": "train/gradients/pool3/Reshape_grad/Shape",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676622740,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "train/beta1_power",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622747,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "train/beta2_power",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622756,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv1/kernel/Adam",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622764,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 20
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv1/kernel/Adam_1",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622786,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv1/bias/Adam",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622796,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv1/bias/Adam_1",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622804,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv2/kernel/Adam",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622813,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv2/kernel/Adam_1",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622822,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv2/bias/Adam",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622831,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "conv2/bias/Adam_1",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622838,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "fc1/kernel/Adam",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622847,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "fc1/kernel/Adam_1",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622855,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "fc1/bias/Adam",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622863,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "fc1/bias/Adam_1",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622871,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "output/kernel/Adam",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622880,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "VariableV2",
+            "args": {
+                "name": "output/kernel/Adam_1",
+                "op": "VariableV2"
+            },
+            "pid": 11,
+            "ts": 1535602676622888,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "conv1/kernel",
+                "name": "conv1/kernel/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622918,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "conv1/bias",
+                "name": "conv1/bias/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622929,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "conv2/kernel",
+                "name": "conv2/kernel/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622936,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "conv2/bias",
+                "name": "conv2/bias/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622943,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "fc1/kernel",
+                "name": "fc1/kernel/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622950,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "fc1/bias",
+                "name": "fc1/bias/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622956,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "output/kernel",
+                "name": "output/kernel/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622963,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "output/bias",
+                "name": "output/bias/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622969,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/beta1_power",
+                "name": "train/beta1_power/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622976,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/beta2_power",
+                "name": "train/beta2_power/read",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676622984,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "PlaceholderWithDefault",
+            "args": {
+                "input0": "inputs/training/input/_3",
+                "name": "inputs/training",
+                "op": "PlaceholderWithDefault"
+            },
+            "pid": 11,
+            "ts": 1535602676626150,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9
+        },
+        {
+            "name": "Switch",
+            "args": {
+                "input0": "inputs/training",
+                "input1": "inputs/training",
+                "name": "pool3/dropout/cond/Switch",
+                "op": "Switch"
+            },
+            "pid": 11,
+            "ts": 1535602676626162,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "inputs/training",
+                "name": "pool3/dropout/cond/pred_id",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676626168,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Reshape",
+            "args": {
+                "input0": "_arg_inputs/X_0_0/_1",
+                "input1": "inputs/Reshape/shape",
+                "name": "inputs/Reshape",
+                "op": "Reshape"
+            },
+            "pid": 11,
+            "ts": 1535602676626221,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9
+        },
+        {
+            "name": "_arg_inputs/X_0_0",
+            "pid": 5,
+            "ts": 1535602676622404,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "s",
+            "id": 0
+        },
+        {
+            "name": "_arg_inputs/X_0_0",
+            "pid": 11,
+            "ts": 1535602676626221,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "t",
+            "id": 0
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "input0": "inputs/Reshape",
+                "input1": "conv1/kernel/read",
+                "name": "conv1/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 11,
+            "ts": 1535602676626236,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 178
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "input0": "conv1/Conv2D",
+                "input1": "conv1/bias/read",
+                "name": "conv1/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 11,
+            "ts": 1535602676626424,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 26
+        },
+        {
+            "name": "Relu",
+            "args": {
+                "input0": "conv1/BiasAdd",
+                "name": "conv1/Relu",
+                "op": "Relu"
+            },
+            "pid": 11,
+            "ts": 1535602676626452,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 20
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "input0": "conv1/Relu",
+                "input1": "conv2/kernel/read",
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 11,
+            "ts": 1535602676626479,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 127
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "input0": "conv2/Conv2D",
+                "input1": "conv2/bias/read",
+                "name": "conv2/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 11,
+            "ts": 1535602676626613,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 19
+        },
+        {
+            "name": "Relu",
+            "args": {
+                "input0": "conv2/BiasAdd",
+                "name": "conv2/Relu",
+                "op": "Relu"
+            },
+            "pid": 11,
+            "ts": 1535602676626634,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 16
+        },
+        {
+            "name": "MaxPool",
+            "args": {
+                "input0": "conv2/Relu",
+                "name": "pool3/MaxPool",
+                "op": "MaxPool"
+            },
+            "pid": 11,
+            "ts": 1535602676626651,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 29
+        },
+        {
+            "name": "Reshape",
+            "args": {
+                "input0": "pool3/MaxPool",
+                "input1": "pool3/Reshape/shape",
+                "name": "pool3/Reshape",
+                "op": "Reshape"
+            },
+            "pid": 11,
+            "ts": 1535602676626685,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Switch",
+            "args": {
+                "input0": "pool3/Reshape",
+                "input1": "pool3/dropout/cond/pred_id",
+                "name": "pool3/dropout/cond/dropout/div/Switch",
+                "op": "Switch"
+            },
+            "pid": 11,
+            "ts": 1535602676626692,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Switch",
+            "args": {
+                "input0": "pool3/Reshape",
+                "input1": "pool3/dropout/cond/pred_id",
+                "name": "pool3/dropout/cond/Identity/Switch",
+                "op": "Switch"
+            },
+            "pid": 11,
+            "ts": 1535602676626697,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "pool3/dropout/cond/Identity/Switch",
+                "name": "pool3/dropout/cond/Identity",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676626702,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Const",
+            "args": {
+                "input0": "^train/gradients/Switch",
+                "name": "train/gradients/zeros/Const",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676626708,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Shape",
+            "args": {
+                "input0": "train/gradients/Switch_1",
+                "name": "train/gradients/Shape_2",
+                "op": "Shape"
+            },
+            "pid": 11,
+            "ts": 1535602676626715,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9
+        },
+        {
+            "name": "Const",
+            "args": {
+                "input0": "^train/gradients/Switch_1",
+                "name": "train/gradients/zeros_1/Const",
+                "op": "Const"
+            },
+            "pid": 11,
+            "ts": 1535602676626725,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Merge",
+            "args": {
+                "input0": "pool3/dropout/cond/Identity",
+                "input1": "pool3/dropout/cond/dropout/mul",
+                "name": "pool3/dropout/cond/Merge",
+                "op": "Merge"
+            },
+            "pid": 11,
+            "ts": 1535602676626730,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "Fill",
+            "args": {
+                "input0": "train/gradients/Shape_2",
+                "input1": "train/gradients/zeros_1/Const",
+                "name": "train/gradients/zeros_1",
+                "op": "Fill"
+            },
+            "pid": 11,
+            "ts": 1535602676626739,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 25
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "input0": "pool3/dropout/cond/Merge",
+                "input1": "fc1/kernel/read",
+                "name": "fc1/fc1/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 11,
+            "ts": 1535602676626769,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 39
+        },
+        {
+            "name": "Merge",
+            "args": {
+                "input0": "train/gradients/zeros_1",
+                "input1": "train/gradients/pool3/dropout/cond/dropout/div_grad/tuple/control_dependency",
+                "name": "train/gradients/pool3/dropout/cond/dropout/div/Switch_grad/cond_grad",
+                "op": "Merge"
+            },
+            "pid": 11,
+            "ts": 1535602676626812,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "input0": "fc1/fc1/MatMul",
+                "input1": "fc1/bias/read",
+                "name": "fc1/fc1/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 11,
+            "ts": 1535602676626821,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 17
+        },
+        {
+            "name": "Relu",
+            "args": {
+                "input0": "fc1/fc1/BiasAdd",
+                "name": "fc1/fc1/Relu",
+                "op": "Relu"
+            },
+            "pid": 11,
+            "ts": 1535602676626841,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 14
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "input0": "fc1/fc1/Relu",
+                "input1": "output/kernel/read",
+                "name": "output/output/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 11,
+            "ts": 1535602676626857,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 24
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "input0": "output/output/MatMul",
+                "input1": "output/bias/read",
+                "name": "output/output/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 11,
+            "ts": 1535602676626885,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 17
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "input0": "output/output/BiasAdd",
+                "input1": "_arg_inputs/y_0_1/_5",
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 11,
+            "ts": 1535602676626904,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 75
+        },
+        {
+            "name": "_arg_inputs/y_0_1",
+            "pid": 5,
+            "ts": 1535602676622414,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "s",
+            "id": 1
+        },
+        {
+            "name": "_arg_inputs/y_0_1",
+            "pid": 11,
+            "ts": 1535602676626904,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "t",
+            "id": 1
+        },
+        {
+            "name": "PreventGradient",
+            "args": {
+                "input0": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits:1",
+                "name": "train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/PreventGradient",
+                "op": "PreventGradient"
+            },
+            "pid": 11,
+            "ts": 1535602676626981,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Mul",
+            "args": {
+                "input0": "train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/ExpandDims",
+                "input1": "train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/PreventGradient",
+                "name": "train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/mul",
+                "op": "Mul"
+            },
+            "pid": 11,
+            "ts": 1535602676626987,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 26
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "input0": "train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/mul",
+                "name": "train/gradients/output/output/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 11,
+            "ts": 1535602676627017,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 36
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input0": "^train/gradients/output/output/BiasAdd_grad/BiasAddGrad",
+                "input1": "^train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/mul",
+                "name": "train/gradients/output/output/BiasAdd_grad/tuple/group_deps",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602676627056,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/mul",
+                "input1": "^train/gradients/output/output/BiasAdd_grad/tuple/group_deps",
+                "name": "train/gradients/output/output/BiasAdd_grad/tuple/control_dependency",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676627061,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/output/output/BiasAdd_grad/BiasAddGrad",
+                "input1": "^train/gradients/output/output/BiasAdd_grad/tuple/group_deps",
+                "name": "train/gradients/output/output/BiasAdd_grad/tuple/control_dependency_1",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676627066,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "input0": "train/gradients/output/output/BiasAdd_grad/tuple/control_dependency",
+                "input1": "output/kernel/read",
+                "name": "train/gradients/output/output/MatMul_grad/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 11,
+            "ts": 1535602676627070,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 25
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "input0": "fc1/fc1/Relu",
+                "input1": "train/gradients/output/output/BiasAdd_grad/tuple/control_dependency",
+                "name": "train/gradients/output/output/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 11,
+            "ts": 1535602676627099,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 63
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "input2": "output/bias/Adam_1",
+                "input3": "train/beta1_power/read",
+                "input0": "output/bias",
+                "input1": "output/bias/Adam",
+                "input6": "train/Adam/beta1",
+                "name": "train/Adam/update_output/bias/ApplyAdam",
+                "input4": "train/beta2_power/read",
+                "input5": "train/Adam/learning_rate",
+                "input7": "train/Adam/beta2",
+                "input8": "train/Adam/epsilon",
+                "input9": "train/gradients/output/output/BiasAdd_grad/tuple/control_dependency_1",
+                "op": "ApplyAdam"
+            },
+            "pid": 11,
+            "ts": 1535602676627164,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 47
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input0": "^train/gradients/output/output/MatMul_grad/MatMul",
+                "input1": "^train/gradients/output/output/MatMul_grad/MatMul_1",
+                "name": "train/gradients/output/output/MatMul_grad/tuple/group_deps",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602676627215,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/output/output/MatMul_grad/MatMul",
+                "input1": "^train/gradients/output/output/MatMul_grad/tuple/group_deps",
+                "name": "train/gradients/output/output/MatMul_grad/tuple/control_dependency",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676627220,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/output/output/MatMul_grad/MatMul_1",
+                "input1": "^train/gradients/output/output/MatMul_grad/tuple/group_deps",
+                "name": "train/gradients/output/output/MatMul_grad/tuple/control_dependency_1",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676627225,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ReluGrad",
+            "args": {
+                "input0": "train/gradients/output/output/MatMul_grad/tuple/control_dependency",
+                "input1": "fc1/fc1/Relu",
+                "name": "train/gradients/fc1/fc1/Relu_grad/ReluGrad",
+                "op": "ReluGrad"
+            },
+            "pid": 11,
+            "ts": 1535602676627229,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 20
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "input2": "output/kernel/Adam_1",
+                "input3": "train/beta1_power/read",
+                "input0": "output/kernel",
+                "input1": "output/kernel/Adam",
+                "input6": "train/Adam/beta1",
+                "name": "train/Adam/update_output/kernel/ApplyAdam",
+                "input4": "train/beta2_power/read",
+                "input5": "train/Adam/learning_rate",
+                "input7": "train/Adam/beta2",
+                "input8": "train/Adam/epsilon",
+                "input9": "train/gradients/output/output/MatMul_grad/tuple/control_dependency_1",
+                "op": "ApplyAdam"
+            },
+            "pid": 11,
+            "ts": 1535602676627251,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 34
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "input0": "train/gradients/fc1/fc1/Relu_grad/ReluGrad",
+                "name": "train/gradients/fc1/fc1/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 11,
+            "ts": 1535602676627288,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 26
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input0": "^train/gradients/fc1/fc1/BiasAdd_grad/BiasAddGrad",
+                "input1": "^train/gradients/fc1/fc1/Relu_grad/ReluGrad",
+                "name": "train/gradients/fc1/fc1/BiasAdd_grad/tuple/group_deps",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602676627317,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/fc1/fc1/Relu_grad/ReluGrad",
+                "input1": "^train/gradients/fc1/fc1/BiasAdd_grad/tuple/group_deps",
+                "name": "train/gradients/fc1/fc1/BiasAdd_grad/tuple/control_dependency",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676627321,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/fc1/fc1/BiasAdd_grad/BiasAddGrad",
+                "input1": "^train/gradients/fc1/fc1/BiasAdd_grad/tuple/group_deps",
+                "name": "train/gradients/fc1/fc1/BiasAdd_grad/tuple/control_dependency_1",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676627326,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "input0": "train/gradients/fc1/fc1/BiasAdd_grad/tuple/control_dependency",
+                "input1": "fc1/kernel/read",
+                "name": "train/gradients/fc1/fc1/MatMul_grad/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 11,
+            "ts": 1535602676627331,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 23
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "input0": "pool3/dropout/cond/Merge",
+                "input1": "train/gradients/fc1/fc1/BiasAdd_grad/tuple/control_dependency",
+                "name": "train/gradients/fc1/fc1/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 11,
+            "ts": 1535602676627360,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 22
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "input2": "fc1/bias/Adam_1",
+                "input3": "train/beta1_power/read",
+                "input0": "fc1/bias",
+                "input1": "fc1/bias/Adam",
+                "input6": "train/Adam/beta1",
+                "name": "train/Adam/update_fc1/bias/ApplyAdam",
+                "input4": "train/beta2_power/read",
+                "input5": "train/Adam/learning_rate",
+                "input7": "train/Adam/beta2",
+                "input8": "train/Adam/epsilon",
+                "input9": "train/gradients/fc1/fc1/BiasAdd_grad/tuple/control_dependency_1",
+                "op": "ApplyAdam"
+            },
+            "pid": 11,
+            "ts": 1535602676627385,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 38
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input0": "^train/gradients/fc1/fc1/MatMul_grad/MatMul",
+                "input1": "^train/gradients/fc1/fc1/MatMul_grad/MatMul_1",
+                "name": "train/gradients/fc1/fc1/MatMul_grad/tuple/group_deps",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602676627426,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/fc1/fc1/MatMul_grad/MatMul",
+                "input1": "^train/gradients/fc1/fc1/MatMul_grad/tuple/group_deps",
+                "name": "train/gradients/fc1/fc1/MatMul_grad/tuple/control_dependency",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676627431,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/fc1/fc1/MatMul_grad/MatMul_1",
+                "input1": "^train/gradients/fc1/fc1/MatMul_grad/tuple/group_deps",
+                "name": "train/gradients/fc1/fc1/MatMul_grad/tuple/control_dependency_1",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676627435,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "Switch",
+            "args": {
+                "input0": "train/gradients/fc1/fc1/MatMul_grad/tuple/control_dependency",
+                "input1": "pool3/dropout/cond/pred_id",
+                "name": "train/gradients/pool3/dropout/cond/Merge_grad/cond_grad",
+                "op": "Switch"
+            },
+            "pid": 11,
+            "ts": 1535602676627439,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "input2": "fc1/kernel/Adam_1",
+                "input3": "train/beta1_power/read",
+                "input0": "fc1/kernel",
+                "input1": "fc1/kernel/Adam",
+                "input6": "train/Adam/beta1",
+                "name": "train/Adam/update_fc1/kernel/ApplyAdam",
+                "input4": "train/beta2_power/read",
+                "input5": "train/Adam/learning_rate",
+                "input7": "train/Adam/beta2",
+                "input8": "train/Adam/epsilon",
+                "input9": "train/gradients/fc1/fc1/MatMul_grad/tuple/control_dependency_1",
+                "op": "ApplyAdam"
+            },
+            "pid": 11,
+            "ts": 1535602676627445,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 34
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input0": "^train/gradients/pool3/dropout/cond/Merge_grad/cond_grad",
+                "name": "train/gradients/pool3/dropout/cond/Merge_grad/tuple/group_deps",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602676627482,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/pool3/dropout/cond/Merge_grad/cond_grad",
+                "input1": "^train/gradients/pool3/dropout/cond/Merge_grad/tuple/group_deps",
+                "name": "train/gradients/pool3/dropout/cond/Merge_grad/tuple/control_dependency",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676627487,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Merge",
+            "args": {
+                "input0": "train/gradients/pool3/dropout/cond/Merge_grad/tuple/control_dependency",
+                "input1": "train/gradients/zeros",
+                "name": "train/gradients/pool3/dropout/cond/Identity/Switch_grad/cond_grad",
+                "op": "Merge"
+            },
+            "pid": 11,
+            "ts": 1535602676627492,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "AddN",
+            "args": {
+                "input0": "train/gradients/pool3/dropout/cond/Identity/Switch_grad/cond_grad",
+                "input1": "train/gradients/pool3/dropout/cond/dropout/div/Switch_grad/cond_grad",
+                "name": "train/gradients/AddN",
+                "op": "AddN"
+            },
+            "pid": 11,
+            "ts": 1535602676627502,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 20
+        },
+        {
+            "name": "Reshape",
+            "args": {
+                "input0": "train/gradients/AddN",
+                "input1": "train/gradients/pool3/Reshape_grad/Shape",
+                "name": "train/gradients/pool3/Reshape_grad/Reshape",
+                "op": "Reshape"
+            },
+            "pid": 11,
+            "ts": 1535602676627525,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "input2": "train/gradients/pool3/Reshape_grad/Reshape",
+                "input0": "conv2/Relu",
+                "input1": "pool3/MaxPool",
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 11,
+            "ts": 1535602676627531,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 90
+        },
+        {
+            "name": "ReluGrad",
+            "args": {
+                "input0": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "input1": "conv2/Relu",
+                "name": "train/gradients/conv2/Relu_grad/ReluGrad",
+                "op": "ReluGrad"
+            },
+            "pid": 11,
+            "ts": 1535602676627628,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 19
+        },
+        {
+            "name": "_CopyFromGpuToHost",
+            "args": {
+                "input0": "inputs/Reshape",
+                "name": "swap_out_train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0",
+                "op": "_CopyFromGpuToHost"
+            },
+            "pid": 11,
+            "ts": 1535602676626246,
+            "cat": "Op",
+            "tid": 1,
+            "ph": "X",
+            "dur": 1463
+        },
+        {
+            "name": "inputs/Reshape",
+            "pid": 11,
+            "ts": 1535602676626230,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "s",
+            "id": 2
+        },
+        {
+            "name": "inputs/Reshape",
+            "pid": 11,
+            "ts": 1535602676626246,
+            "cat": "DataFlow",
+            "tid": 1,
+            "ph": "t",
+            "id": 2
+        },
+        {
+            "name": "ShapeN",
+            "args": {
+                "input2": "^swap_out_train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0",
+                "input0": "inputs/Reshape",
+                "input1": "conv1/kernel/read",
+                "name": "train/gradients/conv1/Conv2D_grad/ShapeN",
+                "op": "ShapeN"
+            },
+            "pid": 11,
+            "ts": 1535602676627732,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 31
+        },
+        {
+            "name": "_CopyFromGpuToHost",
+            "args": {
+                "input0": "conv1/Relu",
+                "name": "swap_out_train/gradients/conv1/Relu_grad/ReluGrad_1",
+                "op": "_CopyFromGpuToHost"
+            },
+            "pid": 11,
+            "ts": 1535602676626486,
+            "cat": "Op",
+            "tid": 2,
+            "ph": "X",
+            "dur": 66005
+        },
+        {
+            "name": "conv1/Relu",
+            "pid": 11,
+            "ts": 1535602676626472,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "s",
+            "id": 3
+        },
+        {
+            "name": "conv1/Relu",
+            "pid": 11,
+            "ts": 1535602676626486,
+            "cat": "DataFlow",
+            "tid": 2,
+            "ph": "t",
+            "id": 3
+        },
+        {
+            "name": "ShapeN",
+            "args": {
+                "input2": "^swap_out_train/gradients/conv1/Relu_grad/ReluGrad_1",
+                "input0": "conv1/Relu",
+                "input1": "conv2/kernel/read",
+                "name": "train/gradients/conv2/Conv2D_grad/ShapeN",
+                "op": "ShapeN"
+            },
+            "pid": 11,
+            "ts": 1535602676692511,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 13
+        },
+        {
+            "name": "_CopyFromGpuToHost",
+            "args": {
+                "input0": "train/gradients/conv2/Relu_grad/ReluGrad",
+                "name": "swap_out_train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_0",
+                "op": "_CopyFromGpuToHost"
+            },
+            "pid": 11,
+            "ts": 1535602676627660,
+            "cat": "Op",
+            "tid": 3,
+            "ph": "X",
+            "dur": 227952
+        },
+        {
+            "name": "train/gradients/conv2/Relu_grad/ReluGrad",
+            "pid": 11,
+            "ts": 1535602676627647,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "s",
+            "id": 4
+        },
+        {
+            "name": "train/gradients/conv2/Relu_grad/ReluGrad",
+            "pid": 11,
+            "ts": 1535602676627660,
+            "cat": "DataFlow",
+            "tid": 3,
+            "ph": "t",
+            "id": 4
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "input0": "train/gradients/conv2/Relu_grad/ReluGrad",
+                "input1": "^swap_out_train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_0",
+                "name": "train/gradients/conv2/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 11,
+            "ts": 1535602676855634,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 145
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input0": "^train/gradients/conv2/BiasAdd_grad/BiasAddGrad",
+                "input1": "^train/gradients/conv2/Relu_grad/ReluGrad",
+                "name": "train/gradients/conv2/BiasAdd_grad/tuple/group_deps",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602676855785,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/conv2/BiasAdd_grad/BiasAddGrad",
+                "input1": "^train/gradients/conv2/BiasAdd_grad/tuple/group_deps",
+                "name": "train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_1",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676855793,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 11
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "input2": "conv2/bias/Adam_1",
+                "input3": "train/beta1_power/read",
+                "input0": "conv2/bias",
+                "input1": "conv2/bias/Adam",
+                "input6": "train/Adam/beta1",
+                "name": "train/Adam/update_conv2/bias/ApplyAdam",
+                "input4": "train/beta2_power/read",
+                "input5": "train/Adam/learning_rate",
+                "input7": "train/Adam/beta2",
+                "input8": "train/Adam/epsilon",
+                "input9": "train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_1",
+                "op": "ApplyAdam"
+            },
+            "pid": 11,
+            "ts": 1535602676855807,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 74
+        },
+        {
+            "name": "_CopyFromHostToGpu",
+            "args": {
+                "input0": "swap_out_train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_0",
+                "input1": "^conv1/Relu",
+                "name": "swap_in_train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_0",
+                "op": "_CopyFromHostToGpu"
+            },
+            "pid": 11,
+            "ts": 1535602676855636,
+            "cat": "Op",
+            "tid": 1,
+            "ph": "X",
+            "dur": 95299
+        },
+        {
+            "name": "swap_out_train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_0",
+            "pid": 11,
+            "ts": 1535602676855612,
+            "cat": "DataFlow",
+            "tid": 3,
+            "ph": "s",
+            "id": 5
+        },
+        {
+            "name": "swap_out_train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_0",
+            "pid": 11,
+            "ts": 1535602676855636,
+            "cat": "DataFlow",
+            "tid": 1,
+            "ph": "t",
+            "id": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "swap_in_train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_0",
+                "input1": "^train/gradients/conv2/BiasAdd_grad/tuple/group_deps",
+                "name": "train/gradients/conv2/BiasAdd_grad/tuple/control_dependency",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676950960,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 17
+        },
+        {
+            "name": "swap_in_train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_0",
+            "pid": 11,
+            "ts": 1535602676950935,
+            "cat": "DataFlow",
+            "tid": 1,
+            "ph": "s",
+            "id": 6
+        },
+        {
+            "name": "swap_in_train/gradients/conv2/BiasAdd_grad/tuple/control_dependency_0",
+            "pid": 11,
+            "ts": 1535602676950960,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "t",
+            "id": 6
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "input2": "train/gradients/conv2/BiasAdd_grad/tuple/control_dependency",
+                "input0": "train/gradients/conv2/Conv2D_grad/ShapeN",
+                "input1": "conv2/kernel/read",
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 11,
+            "ts": 1535602676950989,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 217
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "input2": "train/gradients/conv2/BiasAdd_grad/tuple/control_dependency",
+                "input0": "conv1/Relu",
+                "input1": "train/gradients/conv2/Conv2D_grad/ShapeN:1",
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 11,
+            "ts": 1535602676951220,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 175
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input0": "^train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "input1": "^train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "name": "train/gradients/conv2/Conv2D_grad/tuple/group_deps",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602676951407,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "input1": "^train/gradients/conv2/Conv2D_grad/tuple/group_deps",
+                "name": "train/gradients/conv2/Conv2D_grad/tuple/control_dependency",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676951416,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "input1": "^train/gradients/conv2/Conv2D_grad/tuple/group_deps",
+                "name": "train/gradients/conv2/Conv2D_grad/tuple/control_dependency_1",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676951423,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "input2": "conv2/kernel/Adam_1",
+                "input3": "train/beta1_power/read",
+                "input0": "conv2/kernel",
+                "input1": "conv2/kernel/Adam",
+                "input6": "train/Adam/beta1",
+                "name": "train/Adam/update_conv2/kernel/ApplyAdam",
+                "input4": "train/beta2_power/read",
+                "input5": "train/Adam/learning_rate",
+                "input7": "train/Adam/beta2",
+                "input8": "train/Adam/epsilon",
+                "input9": "train/gradients/conv2/Conv2D_grad/tuple/control_dependency_1",
+                "op": "ApplyAdam"
+            },
+            "pid": 11,
+            "ts": 1535602676951434,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 70
+        },
+        {
+            "name": "_CopyFromHostToGpu",
+            "args": {
+                "input0": "swap_out_train/gradients/conv1/Relu_grad/ReluGrad_1",
+                "input1": "^train/gradients/conv2/BiasAdd_grad/tuple/control_dependency",
+                "name": "swap_in_train/gradients/conv1/Relu_grad/ReluGrad_1",
+                "op": "_CopyFromHostToGpu"
+            },
+            "pid": 11,
+            "ts": 1535602676950993,
+            "cat": "Op",
+            "tid": 1,
+            "ph": "X",
+            "dur": 47704
+        },
+        {
+            "name": "swap_out_train/gradients/conv1/Relu_grad/ReluGrad_1",
+            "pid": 11,
+            "ts": 1535602676692491,
+            "cat": "DataFlow",
+            "tid": 2,
+            "ph": "s",
+            "id": 7
+        },
+        {
+            "name": "swap_out_train/gradients/conv1/Relu_grad/ReluGrad_1",
+            "pid": 11,
+            "ts": 1535602676950993,
+            "cat": "DataFlow",
+            "tid": 1,
+            "ph": "t",
+            "id": 7
+        },
+        {
+            "name": "ReluGrad",
+            "args": {
+                "input0": "train/gradients/conv2/Conv2D_grad/tuple/control_dependency",
+                "input1": "swap_in_train/gradients/conv1/Relu_grad/ReluGrad_1",
+                "name": "train/gradients/conv1/Relu_grad/ReluGrad",
+                "op": "ReluGrad"
+            },
+            "pid": 11,
+            "ts": 1535602676998717,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 42
+        },
+        {
+            "name": "swap_in_train/gradients/conv1/Relu_grad/ReluGrad_1",
+            "pid": 11,
+            "ts": 1535602676998697,
+            "cat": "DataFlow",
+            "tid": 1,
+            "ph": "s",
+            "id": 8
+        },
+        {
+            "name": "swap_in_train/gradients/conv1/Relu_grad/ReluGrad_1",
+            "pid": 11,
+            "ts": 1535602676998717,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "t",
+            "id": 8
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "input0": "train/gradients/conv1/Relu_grad/ReluGrad",
+                "name": "train/gradients/conv1/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 11,
+            "ts": 1535602676998771,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 91
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input0": "^train/gradients/conv1/BiasAdd_grad/BiasAddGrad",
+                "input1": "^train/gradients/conv1/Relu_grad/ReluGrad",
+                "name": "train/gradients/conv1/BiasAdd_grad/tuple/group_deps",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602676998873,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/conv1/Relu_grad/ReluGrad",
+                "input1": "^train/gradients/conv1/BiasAdd_grad/tuple/group_deps",
+                "name": "train/gradients/conv1/BiasAdd_grad/tuple/control_dependency",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676998881,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/conv1/BiasAdd_grad/BiasAddGrad",
+                "input1": "^train/gradients/conv1/BiasAdd_grad/tuple/group_deps",
+                "name": "train/gradients/conv1/BiasAdd_grad/tuple/control_dependency_1",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602676998888,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "input2": "train/gradients/conv1/BiasAdd_grad/tuple/control_dependency",
+                "input0": "train/gradients/conv1/Conv2D_grad/ShapeN",
+                "input1": "conv1/kernel/read",
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 11,
+            "ts": 1535602676998897,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 166
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "input2": "conv1/bias/Adam_1",
+                "input3": "train/beta1_power/read",
+                "input0": "conv1/bias",
+                "input1": "conv1/bias/Adam",
+                "input6": "train/Adam/beta1",
+                "name": "train/Adam/update_conv1/bias/ApplyAdam",
+                "input4": "train/beta2_power/read",
+                "input5": "train/Adam/learning_rate",
+                "input7": "train/Adam/beta2",
+                "input8": "train/Adam/epsilon",
+                "input9": "train/gradients/conv1/BiasAdd_grad/tuple/control_dependency_1",
+                "op": "ApplyAdam"
+            },
+            "pid": 11,
+            "ts": 1535602676999074,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 69
+        },
+        {
+            "name": "_CopyFromHostToGpu",
+            "args": {
+                "input0": "swap_out_train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0",
+                "input1": "^train/gradients/conv1/Relu_grad/ReluGrad",
+                "name": "swap_in_train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0",
+                "op": "_CopyFromHostToGpu"
+            },
+            "pid": 11,
+            "ts": 1535602676998775,
+            "cat": "Op",
+            "tid": 1,
+            "ph": "X",
+            "dur": 55736
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "input2": "train/gradients/conv1/BiasAdd_grad/tuple/control_dependency",
+                "input0": "swap_in_train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0",
+                "input1": "train/gradients/conv1/Conv2D_grad/ShapeN:1",
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 11,
+            "ts": 1535602677054531,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 146
+        },
+        {
+            "name": "swap_in_train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0",
+            "pid": 11,
+            "ts": 1535602677054511,
+            "cat": "DataFlow",
+            "tid": 1,
+            "ph": "s",
+            "id": 9
+        },
+        {
+            "name": "swap_in_train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter_0",
+            "pid": 11,
+            "ts": 1535602677054531,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "t",
+            "id": 9
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input0": "^train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter",
+                "input1": "^train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "name": "train/gradients/conv1/Conv2D_grad/tuple/group_deps",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602677054690,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "Identity",
+            "args": {
+                "input0": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter",
+                "input1": "^train/gradients/conv1/Conv2D_grad/tuple/group_deps",
+                "name": "train/gradients/conv1/Conv2D_grad/tuple/control_dependency_1",
+                "op": "Identity"
+            },
+            "pid": 11,
+            "ts": 1535602677054699,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "input2": "conv1/kernel/Adam_1",
+                "input3": "train/beta1_power/read",
+                "input0": "conv1/kernel",
+                "input1": "conv1/kernel/Adam",
+                "input6": "train/Adam/beta1",
+                "name": "train/Adam/update_conv1/kernel/ApplyAdam",
+                "input4": "train/beta2_power/read",
+                "input5": "train/Adam/learning_rate",
+                "input7": "train/Adam/beta2",
+                "input8": "train/Adam/epsilon",
+                "input9": "train/gradients/conv1/Conv2D_grad/tuple/control_dependency_1",
+                "op": "ApplyAdam"
+            },
+            "pid": 11,
+            "ts": 1535602677054706,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 69
+        },
+        {
+            "name": "Mul",
+            "args": {
+                "input2": "^train/Adam/update_conv1/bias/ApplyAdam",
+                "input3": "^train/Adam/update_conv1/kernel/ApplyAdam",
+                "input0": "train/beta1_power/read",
+                "input1": "train/Adam/beta1",
+                "input6": "^train/Adam/update_fc1/bias/ApplyAdam",
+                "name": "train/Adam/mul",
+                "input4": "^train/Adam/update_conv2/bias/ApplyAdam",
+                "input5": "^train/Adam/update_conv2/kernel/ApplyAdam",
+                "input7": "^train/Adam/update_fc1/kernel/ApplyAdam",
+                "input8": "^train/Adam/update_output/bias/ApplyAdam",
+                "input9": "^train/Adam/update_output/kernel/ApplyAdam",
+                "op": "Mul"
+            },
+            "pid": 11,
+            "ts": 1535602677054781,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 37
+        },
+        {
+            "name": "Mul",
+            "args": {
+                "input2": "^train/Adam/update_conv1/bias/ApplyAdam",
+                "input3": "^train/Adam/update_conv1/kernel/ApplyAdam",
+                "input0": "train/beta2_power/read",
+                "input1": "train/Adam/beta2",
+                "input6": "^train/Adam/update_fc1/bias/ApplyAdam",
+                "name": "train/Adam/mul_1",
+                "input4": "^train/Adam/update_conv2/bias/ApplyAdam",
+                "input5": "^train/Adam/update_conv2/kernel/ApplyAdam",
+                "input7": "^train/Adam/update_fc1/kernel/ApplyAdam",
+                "input8": "^train/Adam/update_output/bias/ApplyAdam",
+                "input9": "^train/Adam/update_output/kernel/ApplyAdam",
+                "op": "Mul"
+            },
+            "pid": 11,
+            "ts": 1535602677054827,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 29
+        },
+        {
+            "name": "Assign",
+            "args": {
+                "input0": "train/beta1_power",
+                "input1": "train/Adam/mul",
+                "name": "train/Adam/Assign",
+                "op": "Assign"
+            },
+            "pid": 11,
+            "ts": 1535602677054861,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 49
+        },
+        {
+            "name": "Assign",
+            "args": {
+                "input0": "train/beta2_power",
+                "input1": "train/Adam/mul_1",
+                "name": "train/Adam/Assign_1",
+                "op": "Assign"
+            },
+            "pid": 11,
+            "ts": 1535602677054914,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 31
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "input2": "^train/Adam/update_conv1/bias/ApplyAdam",
+                "input3": "^train/Adam/update_conv1/kernel/ApplyAdam",
+                "input0": "^train/Adam/Assign",
+                "input1": "^train/Adam/Assign_1",
+                "input6": "^train/Adam/update_fc1/bias/ApplyAdam",
+                "name": "train/Adam",
+                "input4": "^train/Adam/update_conv2/bias/ApplyAdam",
+                "input5": "^train/Adam/update_conv2/kernel/ApplyAdam",
+                "input7": "^train/Adam/update_fc1/kernel/ApplyAdam",
+                "input8": "^train/Adam/update_output/bias/ApplyAdam",
+                "input9": "^train/Adam/update_output/kernel/ApplyAdam",
+                "op": "NoOp"
+            },
+            "pid": 11,
+            "ts": 1535602677054952,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 10
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv1/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 13,
+            "ts": 1535602676626296,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv1/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 13,
+            "ts": 1535602676626366,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv1/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 13,
+            "ts": 1535602676626386,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2324
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv1/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 13,
+            "ts": 1535602676628713,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4342
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "name": "conv1/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 13,
+            "ts": 1535602676633058,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5736
+        },
+        {
+            "name": "Relu",
+            "args": {
+                "name": "conv1/Relu",
+                "op": "Relu"
+            },
+            "pid": 13,
+            "ts": 1535602676638795,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4491
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 13,
+            "ts": 1535602676643290,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4361
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 13,
+            "ts": 1535602676647653,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 13,
+            "ts": 1535602676647660,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 13,
+            "ts": 1535602676647665,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 23783
+        },
+        {
+            "name": "Conv2D",
+            "args": {
+                "name": "conv2/Conv2D",
+                "op": "Conv2D"
+            },
+            "pid": 13,
+            "ts": 1535602676671456,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9086
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "name": "conv2/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 13,
+            "ts": 1535602676680545,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 12446
+        },
+        {
+            "name": "Relu",
+            "args": {
+                "name": "conv2/Relu",
+                "op": "Relu"
+            },
+            "pid": 13,
+            "ts": 1535602676692993,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8873
+        },
+        {
+            "name": "MaxPool",
+            "args": {
+                "name": "pool3/MaxPool",
+                "op": "MaxPool"
+            },
+            "pid": 13,
+            "ts": 1535602676701868,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6476
+        },
+        {
+            "name": "Fill",
+            "args": {
+                "name": "train/gradients/zeros_1",
+                "op": "Fill"
+            },
+            "pid": 13,
+            "ts": 1535602676708349,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1015
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "fc1/fc1/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 13,
+            "ts": 1535602676709368,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2739
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "name": "fc1/fc1/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 13,
+            "ts": 1535602676712111,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 22
+        },
+        {
+            "name": "Relu",
+            "args": {
+                "name": "fc1/fc1/Relu",
+                "op": "Relu"
+            },
+            "pid": 13,
+            "ts": 1535602676712135,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 24
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "output/output/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 13,
+            "ts": 1535602676712162,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 24
+        },
+        {
+            "name": "BiasAdd",
+            "args": {
+                "name": "output/output/BiasAdd",
+                "op": "BiasAdd"
+            },
+            "pid": 13,
+            "ts": 1535602676712187,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 13,
+            "ts": 1535602676712194,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 13,
+            "ts": 1535602676712199,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 13,
+            "ts": 1535602676712206,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 13,
+            "ts": 1535602676712213,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 13,
+            "ts": 1535602676712223,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "SparseSoftmaxCrossEntropyWithLogits",
+            "args": {
+                "name": "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits",
+                "op": "SparseSoftmaxCrossEntropyWithLogits"
+            },
+            "pid": 13,
+            "ts": 1535602676712228,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Mul",
+            "args": {
+                "name": "train/gradients/train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits_grad/mul",
+                "op": "Mul"
+            },
+            "pid": 13,
+            "ts": 1535602676712233,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/output/output/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676712249,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 20
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/output/output/MatMul_grad/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 13,
+            "ts": 1535602676712271,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 29
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/output/output/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 13,
+            "ts": 1535602676712305,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/output/output/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 13,
+            "ts": 1535602676712310,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 45
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676712357,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676712362,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676712368,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "ReluGrad",
+            "args": {
+                "name": "train/gradients/fc1/fc1/Relu_grad/ReluGrad",
+                "op": "ReluGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676712375,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 30
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676712408,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676712413,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_output/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676712417,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/fc1/fc1/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676712430,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 23
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/fc1/fc1/MatMul_grad/MatMul",
+                "op": "MatMul"
+            },
+            "pid": 13,
+            "ts": 1535602676712456,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2556
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/fc1/fc1/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 13,
+            "ts": 1535602676715015,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2668
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676717686,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676717690,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676717696,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676717702,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 73
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676717777,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 76
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_fc1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676717855,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 104
+        },
+        {
+            "name": "AddN",
+            "args": {
+                "name": "train/gradients/AddN",
+                "op": "AddN"
+            },
+            "pid": 13,
+            "ts": 1535602676717962,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3256
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676721220,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8767
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676729990,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2182
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676732174,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2182
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676734359,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 10770
+        },
+        {
+            "name": "MaxPoolGrad",
+            "args": {
+                "name": "train/gradients/pool3/MaxPool_grad/MaxPoolGrad",
+                "op": "MaxPoolGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676745131,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 8699
+        },
+        {
+            "name": "ReluGrad",
+            "args": {
+                "name": "train/gradients/conv2/Relu_grad/ReluGrad",
+                "op": "ReluGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676753831,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 16805
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/conv2/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676858825,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6193
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/conv2/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 13,
+            "ts": 1535602676865023,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676865035,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676865043,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602676865053,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602676951059,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602676951084,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9206
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602676960294,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 10
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602676960309,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 18208
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602676978522,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4557
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 13,
+            "ts": 1535602676983086,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 9206
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 13,
+            "ts": 1535602676992296,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4571
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 13,
+            "ts": 1535602676996879,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 48205
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv2/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 13,
+            "ts": 1535602677045086,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602677045092,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602677045098,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv2/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602677045103,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "ReluGrad",
+            "args": {
+                "name": "train/gradients/conv1/Relu_grad/ReluGrad",
+                "op": "ReluGrad"
+            },
+            "pid": 13,
+            "ts": 1535602677045110,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 7821
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/conv1/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 13,
+            "ts": 1535602677052951,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2966
+        },
+        {
+            "name": "BiasAddGrad",
+            "args": {
+                "name": "train/gradients/conv1/BiasAdd_grad/BiasAddGrad",
+                "op": "BiasAddGrad"
+            },
+            "pid": 13,
+            "ts": 1535602677055919,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602677055926,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602677055931,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4398
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602677060331,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 64
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602677060398,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6182
+        },
+        {
+            "name": "Conv2DBackpropInput",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropInput",
+                "op": "Conv2DBackpropInput"
+            },
+            "pid": 13,
+            "ts": 1535602677066582,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 325
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602677066909,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602677066914,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/bias/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602677066920,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 13,
+            "ts": 1535602677066926,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 4342
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 13,
+            "ts": 1535602677071282,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 11619
+        },
+        {
+            "name": "Conv2DBackpropFilter",
+            "args": {
+                "name": "train/gradients/conv1/Conv2D_grad/Conv2DBackpropFilter",
+                "op": "Conv2DBackpropFilter"
+            },
+            "pid": 13,
+            "ts": 1535602677082904,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602677082909,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 3
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602677082914,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "ApplyAdam",
+            "args": {
+                "name": "train/Adam/update_conv1/kernel/ApplyAdam",
+                "op": "ApplyAdam"
+            },
+            "pid": 13,
+            "ts": 1535602677082918,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 5
+        },
+        {
+            "name": "Mul",
+            "args": {
+                "name": "train/Adam/mul",
+                "op": "Mul"
+            },
+            "pid": 13,
+            "ts": 1535602677082925,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "Mul",
+            "args": {
+                "name": "train/Adam/mul_1",
+                "op": "Mul"
+            },
+            "pid": 13,
+            "ts": 1535602677082929,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 2
+        },
+        {
+            "name": "MatMul",
+            "args": {
+                "name": "train/gradients/output/output/MatMul_grad/MatMul_1",
+                "op": "MatMul"
+            },
+            "pid": 13,
+            "ts": 1535602676712302,
+            "cat": "Op",
+            "tid": 1,
+            "ph": "X",
+            "dur": 1
+        },
+        {
+            "name": "Assign",
+            "args": {
+                "name": "train/Adam/Assign",
+                "op": "Assign"
+            },
+            "pid": 13,
+            "ts": 1535602677082933,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1
+        },
+        {
+            "name": "Assign",
+            "args": {
+                "name": "train/Adam/Assign_1",
+                "op": "Assign"
+            },
+            "pid": 13,
+            "ts": 1535602677082935,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1
+        }
+    ]
+}
