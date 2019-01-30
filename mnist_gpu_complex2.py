@@ -21,7 +21,7 @@ from tensorflow.core.framework import attr_value_pb2
 from tensorflow.contrib.memory_stats.python.ops import memory_stats_ops
 from tensorflow.python.client import timeline
 
-batch_size = 48
+batch_size = 1
 #batch_size = 5578
 n_epochs = 1
 height = 200
@@ -115,7 +115,7 @@ rewrite_options = rewriter_config_pb2.RewriterConfig(disable_model_pruning=True,
             dependency_optimization=rewriter_config_pb2.RewriterConfig.OFF,
             layout_optimizer=rewriter_config_pb2.RewriterConfig.OFF,
             arithmetic_optimization=rewriter_config_pb2.RewriterConfig.OFF,
-            min_graph_nodes=-1, 
+            #min_graph_nodes=-1, 
             memory_optimization=rewriter_config_pb2.RewriterConfig.SWAPPING_HEURISTICS)
 
 graph_options = tf.GraphOptions(rewrite_options=rewrite_options)#, infer_shapes=True)
@@ -125,23 +125,26 @@ config.gpu_options.allow_growth=True
 #run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
 #run_metadata = tf.RunMetadata()
 
-#graph = tf.get_default_graph()
-#writer = tf.summary.FileWriter("./rewriter_graph1")
-#writer.add_graph(graph=graph)
+graph = tf.get_default_graph()
+writer = tf.summary.FileWriter("./rewriter_graph1")
+writer.add_graph(graph=graph)
 
 import numpy as np
 picture = np.ones([batch_size, 200 * 200], dtype=np.float32)
 picture_label = np.ones([batch_size], dtype=np.float32)
 
+gpu_options2 = tf.GPUOptions(allow_growth=True)
+sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options2))
+
 with tf.Session(config=config) as sess:
     init.run()
     for epoch in range(n_epochs):
         #for iteration in range(mnist.train.num_examples // batch_size):
-        for iteration in range(5):
+        for iteration in range(5000):
             #X_batch, y_batch = mnist.train.next_batch(batch_size)
             sess.run(training_op, feed_dict={X: picture, y: picture_label})#, options=run_options, run_metadata=run_metadata)
-            max_bytes_in_use = sess.run(memory_stats_ops.MaxBytesInUse())/1e6
-            print("step:%i, Max Memory used: %.2f MB "%(iteration, max_bytes_in_use))
+            #max_bytes_in_use = sess.run(memory_stats_ops.MaxBytesInUse())/1e6
+            #print("step:%i, Max Memory used: %.2f MB "%(iteration, max_bytes_in_use))
             """
             for device in run_metadata.step_stats.dev_stats:
                 device_name = device.device

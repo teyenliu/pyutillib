@@ -21,7 +21,7 @@ from tensorflow.core.framework import attr_value_pb2
 from tensorflow.contrib.memory_stats.python.ops import memory_stats_ops
 from tensorflow.python.client import timeline
 
-batch_size = 5778
+batch_size = 1024
 n_epochs = 1
 height = 28
 width = 28
@@ -114,14 +114,14 @@ mnist = input_data.read_data_sets("/tmp/MNIST_data/data/")
 
 from tensorflow.core.protobuf import rewriter_config_pb2
 rewrite_options = rewriter_config_pb2.RewriterConfig(disable_model_pruning=True,
-            constant_folding=rewriter_config_pb2.RewriterConfig.OFF,
-            dependency_optimization=rewriter_config_pb2.RewriterConfig.OFF,
-            layout_optimizer=rewriter_config_pb2.RewriterConfig.OFF,
-            arithmetic_optimization=rewriter_config_pb2.RewriterConfig.OFF,
-            min_graph_nodes=-1, 
+            #constant_folding=rewriter_config_pb2.RewriterConfig.OFF,
+            #dependency_optimization=rewriter_config_pb2.RewriterConfig.OFF,
+            #layout_optimizer=rewriter_config_pb2.RewriterConfig.OFF,
+            #arithmetic_optimization=rewriter_config_pb2.RewriterConfig.OFF,
+            #min_graph_nodes=-1, 
             memory_optimization=rewriter_config_pb2.RewriterConfig.SWAPPING_HEURISTICS)
 
-graph_options = tf.GraphOptions(rewrite_options=rewrite_options)
+graph_options = tf.GraphOptions(rewrite_options=rewrite_options, infer_shapes=True)
 config = tf.ConfigProto(graph_options=graph_options, allow_soft_placement=True, log_device_placement=True)
 config.gpu_options.allow_growth=True
 
@@ -137,7 +137,7 @@ with tf.Session(config=config) as sess:
     init.run()
     for epoch in range(n_epochs):
         #for iteration in range(mnist.train.num_examples // batch_size):
-        for iteration in range(5):
+        for iteration in range(10):
             X_batch, y_batch = mnist.train.next_batch(batch_size)
             sess.run(training_op, feed_dict={X: X_batch, y: y_batch}, options=run_options, run_metadata=run_metadata)
             max_bytes_in_use = sess.run(memory_stats_ops.MaxBytesInUse())/1e6
@@ -150,19 +150,18 @@ with tf.Session(config=config) as sess:
                     print("   ................node_stats:", str(node))
             """
             fetched_timeline = timeline.Timeline(run_metadata.step_stats)
-            chrome_trace = fetched_timeline.generate_chrome_trace_format()
+            chrome_trace = fetched_timeline.generate_chrome_trace_format(show_dataflow=True, show_memory=True)
             with open('timeline_step_%d.json' % iteration, 'w') as f:
                 f.write(chrome_trace)
-
 
         #acc_train = accuracy.eval(feed_dict={X: X_batch, y: y_batch})
         #acc_test = accuracy.eval(feed_dict={X: mnist.test.images, y: mnist.test.labels})
         #print(epoch, "Train accuracy:", acc_train, "Test accuracy:", acc_test)
 
-    graph = sess.graph
-    writer = tf.summary.FileWriter("./rewriter_graph2")
+    #graph = sess.graph
+    #writer = tf.summary.FileWriter("./rewriter_graph2")
     #m = tf.train.export_meta_graph(graph=graph)
-    writer.add_graph(graph=graph)
+    #writer.add_graph(graph=graph)
 
     #save_path = saver.save(sess, "./my_mnist_model")
 

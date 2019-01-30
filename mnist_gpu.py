@@ -4,9 +4,9 @@ from tensorflow.contrib import graph_editor as ge
 import numpy as np
 import os
 from tensorflow.examples.tutorials.mnist import input_data
-import memory_saving_gradients
-import mem_util
-import linearize as linearize_lib
+#import memory_saving_gradients
+#import mem_util
+#import linearize as linearize_lib
 
 # monkey patch tf.gradients to point to our custom version, with automatic checkpoint selection
 #tf.__dict__["gradients"] = memory_saving_gradients.gradients_memory
@@ -102,7 +102,7 @@ with tf.name_scope("init_and_save"):
     init = tf.global_variables_initializer()
     saver = tf.train.Saver()
 
-linearize_lib.linearize()
+#linearize_lib.linearize()
 	
 graph = tf.get_default_graph()
 writer = tf.summary.FileWriter("./simple_graph_events")
