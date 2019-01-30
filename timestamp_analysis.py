@@ -51,3 +51,10 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     do_analysis(args.file)
+
+
+""" Reference complete example of numpy to pandas
+pd.DataFrame(data=data[1:,1:],        # values
+...              index=data[1:,0],    # 1st column as index
+...              columns=data[0,1:])  # 1st row as the column names
+"""

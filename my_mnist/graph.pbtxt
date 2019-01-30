@@ -2531,6 +2531,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "train/gradients/train/Mean_grad/truediv"
@@ -6615,6 +6621,12 @@ node {
       type: DT_BOOL
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "eval/Const"
@@ -7903,5 +7915,5 @@ node {
   input: "^init_and_save/save/Assign_9"
 }
 versions {
-  producer: 26
+  producer: 27
 }

@@ -45,8 +45,8 @@ trX, teX, trY, teY = train_test_split(
 
 # Visualize encoder setting
 # Parameters
-LEARNING_RATE = 0.003    # 0.01 this learning rate will be better! Tested
-BATCH_SIZE = 20
+LEARNING_RATE = 0.001    # 0.01 this learning rate will be better! Tested
+BATCH_SIZE = 4
 DISPLAY_STEP = 1
 
 # Network Parameters
@@ -61,8 +61,8 @@ with tf.name_scope('inputs'):
     Y = tf.placeholder("float32", [None, n_final], name="ESL_ys")
 
 # hidden layer settings
-n_hidden_1 = 10
-n_hidden_2 = 10
+n_hidden_1 = 32
+n_hidden_2 = 32
 
 
 with tf.name_scope('weights'):
@@ -304,4 +304,9 @@ if __name__ == '__main__':
 Optimization Finished!
 MSE train: 0.006, test: 0.008
 R^2 train: 0.994, test: 0.991
+
+('Epoch:', '0501', 'cost=', 0.007887606)
+Optimization Finished!
+MSE train: 0.008, test: 0.009
+R^2 train: 0.993, test: 0.989
 """

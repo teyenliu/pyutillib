@@ -47,8 +47,8 @@ trX, teX, trY, teY = train_test_split(
 
 # Hyper Parameters
 BATCH_SIZE = 4
-TIME_STEP = 4          # rnn time step 
-INPUT_SIZE = 1         # rnn input size 
+TIME_STEP = 1          # rnn time step 
+INPUT_SIZE = 4         # rnn input size 
 OUTPUT_SIZE =  2
 LR = 0.005               # learning rate
 
@@ -60,6 +60,7 @@ tf_y = tf.placeholder(tf.float32, [None, OUTPUT_SIZE])                          
 
 # RNN
 rnn_cell = tf.contrib.rnn.BasicLSTMCell(num_units=16)
+# the shape of rnn output is (batch, time step, num hidden units)
 outputs, (h_c, h_n) = tf.nn.dynamic_rnn(
     rnn_cell,                   # cell you have chosen
     esl,                        # input
@@ -70,6 +71,10 @@ outputs, (h_c, h_n) = tf.nn.dynamic_rnn(
 outputs = tf.layers.dense(outputs[:, -1, :], 2)              # output based on the last output step
 loss = tf.reduce_mean(tf.pow(outputs - tf_y, 2))
 train_op = tf.train.AdamOptimizer(LR).minimize(loss)
+
+graph = tf.get_default_graph()
+writer = tf.summary.FileWriter("./lstm_graph_events")
+writer.add_graph(graph=graph)
 
 sess = tf.Session()
 init_op = tf.group(tf.global_variables_initializer(), tf.local_variables_initializer()) # the local var is for accuracy_op
@@ -123,5 +128,9 @@ plt.plot(teY[:, 1], 'ro', teY_pred[:, 1], 'k')
 plt.legend(['Original ESL2', 'Predicted ESL2'], loc='upper left')
 plt.show()
 
-
-
+"""
+('Epoch:', '0300', 'cost=', 0.0043964237)
+Optimization Finished!
+MSE train: 0.003, test: 0.004
+R^2 train: 0.997, test: 0.995
+"""

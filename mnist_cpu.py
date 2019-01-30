@@ -83,6 +83,10 @@ with tf.name_scope("init_and_save"):
     init = tf.global_variables_initializer()
     saver = tf.train.Saver()
 
+graph = tf.get_default_graph()
+writer = tf.summary.FileWriter("./rewriter_graph1")
+writer.add_graph(graph=graph)
+
 
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("/home/liudanny/MNIST_data/data/")

@@ -18,7 +18,7 @@ def load_graph(frozen_graph):
     with tf.Graph().as_default() as graph:
         # The name var will prefix every op/nodes in your graph
         # Since we load everything in a new graph, this is not needed
-        tf.import_graph_def(graph_def, name="prefix")
+        tf.import_graph_def(graph_def, name="")
     return graph
 
 if __name__ == '__main__':
@@ -31,8 +31,8 @@ if __name__ == '__main__':
     #    print(op.name)
     #X = tf.placeholder("float", [None, n_input])
     #Y = tf.placeholder("float", [None, n_classes])
-    input_node  = graph.get_tensor_by_name('prefix/inputs/X:0')
-    output_node = graph.get_tensor_by_name('prefix/output/output/BiasAdd:0')
+    input_node  = graph.get_tensor_by_name('inputs/X:0')
+    output_node = graph.get_tensor_by_name('output/output/BiasAdd:0')
     #mnist = input_data.read_data_sets("/tmp/MNIST_data/data/", one_hot=True)
     #picture = np.ones([1, 784])
     #print('picture:', picture)
