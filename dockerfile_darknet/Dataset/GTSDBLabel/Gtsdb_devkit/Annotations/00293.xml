@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<annotation>
+	<folder>data</folder>
+	<filename>/data_D/py-faster-rcnn/data/Gtsdb_devkit/data/Images/00293.ppm</filename>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1360</width>
+		<height>800</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>prohibitory</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>28</xmin>
+			<ymin>410</ymin>
+			<xmax>70</xmax>
+			<ymax>456</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>prohibitory</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1143</xmin>
+			<ymin>365</ymin>
+			<xmax>1193</xmax>
+			<ymax>415</ymax>
+		</bndbox>
+	</object>
+</annotation>
