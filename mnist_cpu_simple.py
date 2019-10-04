@@ -17,7 +17,7 @@ PROJECT_ROOT_DIR = "."
 CHAPTER_ID = "cnn"
 
 
-n_epochs = 1
+n_epochs = 2
 batch_size = 10
 height = 28
 width = 28
@@ -59,6 +59,7 @@ with tf.name_scope("pool3"):
 
 with tf.name_scope("fc1"):
     fc1 = tf.layers.dense(pool3_flat, n_fc1, activation=tf.nn.relu, name="fc1")
+    #fc1_s_g = tf.stop_gradient(fc1)
 
 with tf.name_scope("output"):
     logits = tf.layers.dense(fc1, n_outputs, name="output")
@@ -68,7 +69,11 @@ with tf.name_scope("train"):
     xentropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=y)
     loss = tf.reduce_mean(xentropy)
     optimizer = tf.train.AdamOptimizer()
-    training_op = optimizer.minimize(loss)
+    train_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES,
+                     scope="conv[12]|pool3|output")
+    print("train_vars", train_vars)
+    
+    training_op = optimizer.minimize(loss, var_list=train_vars)
 
 with tf.name_scope("eval"):
     correct = tf.nn.in_top_k(logits, y, 1)
@@ -97,6 +102,9 @@ mnist = input_data.read_data_sets("/home/liudanny/MNIST_data/data/")
 
 #TensorFlow SavedModel builder
 export_dir = './my_mnist_builder'
+if os.path.exists(export_dir):
+    import shutil
+    shutil.rmtree(export_dir)
 builder = tf.saved_model.builder.SavedModelBuilder(export_dir)
 
 with tf.Session() as sess:
@@ -108,6 +116,7 @@ with tf.Session() as sess:
             X_batch, y_batch = mnist.train.next_batch(batch_size)
             sess.run(training_op, feed_dict={X: X_batch, y: y_batch})
             print("iteration", iteration)
+
         acc_train = accuracy.eval(feed_dict={X: X_batch, y: y_batch})
         acc_test = accuracy.eval(feed_dict={X: mnist.test.images, y: mnist.test.labels})
         print(epoch, "Train accuracy:", acc_train, "Test accuracy:", acc_test)

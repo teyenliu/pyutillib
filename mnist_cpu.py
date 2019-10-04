@@ -91,7 +91,7 @@ writer.add_graph(graph=graph)
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("/home/liudanny/MNIST_data/data/")
 
-n_epochs = 10
+n_epochs = 1
 batch_size = 10
 
 with tf.Session() as sess:

@@ -10,6 +10,7 @@ from __future__ import division, print_function, unicode_literals
 import numpy as np
 import tensorflow as tf
 import os
+from tensorflow.python.tools import freeze_graph
 
 fc1_bias_arr = [ 0.04256172, -0.00969896, -0.03594858, -0.02367548,  0.00042766, -0.01795764,
  -0.00687283, -0.00755484, -0.01338008, -0.00826145, -0.01769337,  0.02237733,
@@ -134,8 +135,28 @@ with tf.Session() as sess:
             weights_data = var.eval()
             print("Name:", var.name, "Data:", weights_data)
 
+    # Freeze the graph
+    input_graph_path = './my_mnist/graph.pbtxt'
+    checkpoint_path = './my_mnist/my_mnist_model'
+    input_saver_def_path = ""
+    input_binary = False
+    output_node_names = "output/output/BiasAdd"
+    restore_op_name = ""
+    filename_tensor_name = ""
+    output_frozen_graph_name = './my_mnist/frozen_graph.pb'
+    output_optimized_graph_name = './my_mnist/optimized_frozen_graph.pb'
+    clear_devices = True
+
+    freeze_graph.freeze_graph(input_graph_path, input_saver_def_path,
+                          input_binary, checkpoint_path, output_node_names,
+                          restore_op_name, filename_tensor_name,
+                          output_frozen_graph_name, clear_devices, "")
+
     #TensorFlow SavedModel builder
     export_dir = './my_mnist_builder'
+    if os.path.exists(export_dir):
+        import shutil
+        shutil.rmtree(export_dir)
     builder = tf.saved_model.builder.SavedModelBuilder(export_dir)
     mnist_inputs = {'input': tf.saved_model.utils.build_tensor_info(X)}
     mnist_outputs = {'pred_proba': tf.saved_model.utils.build_tensor_info(Y_proba)}

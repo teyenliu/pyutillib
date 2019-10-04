@@ -43,5 +43,6 @@ if __name__ == '__main__':
         #print("Accuracy:", output_node.eval({input_node: mnist.test.images, output: mnist.test.labels}))
         #_ = sess.run(output_node, feed_dict={input_node: mnist.test.images})
         _ = sess.run(output_node, feed_dict={input_node: picture})
+        print("outputs:", _)
         for _output in _:
             print("result:", np.argmax(_output))

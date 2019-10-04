@@ -13,12 +13,14 @@ plt.legend()
 plt.show()
 
 import tensorflow as tf
+x_input = tf.placeholder(tf.float32, shape=(None, 2))
+
 # 定義TensorFlow變數
 W = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 B = tf.Variable(tf.zeros([1]))
 
 # 定義資料模型
-y = W * x_point + B
+y = W * x_input + B
 
 # 成本函數
 cost_function = tf.reduce_mean(tf.square(y - y_point))

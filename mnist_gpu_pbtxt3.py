@@ -67,7 +67,7 @@ with tf.Session(graph=graph) as sess:
 
     #graph = tf.get_default_graph()
     for op in graph.get_operations():
-        print(op.name)
+        print("op name:", op.name, "tensor:", op.values())
         #if op.name == "output/output/BiasAdd":
         #    logits = op
         #if op.name == "train/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits":
